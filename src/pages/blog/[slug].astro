@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+
+// Let's get the posts static paths and data (props) to create their pages:
+// - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+export async function getStaticPaths() {
+  // Get all entries from blog collection:
+  const posts = await getCollection("blog");
+
+  // Creating and returning the static paths and props array:
+  const staticPathsAndProps = posts.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+  return staticPathsAndProps;
+}
+
+// For a specific page, we get post data and render the content in a component called `Content`:
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>dveras em rede</h1>
+    <h2>{post.data.titulo}</h2>
+    <Content />
+  </body>
+</html>
