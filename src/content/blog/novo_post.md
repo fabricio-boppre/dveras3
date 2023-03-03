@@ -6,7 +6,7 @@ categorias:
   - Categoria 1
   - Categoria 2
   - (...)
-offline: false
+offline: true
 --- 
 
 # Instruções para publicação de post
