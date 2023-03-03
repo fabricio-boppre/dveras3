@@ -1,12 +1,12 @@
 ---
 titulo: Título do novo post
+offline: true
 descricao: Esta é uma descrição opcional.
 data_publicacao: 1999-01-30
 categorias:
   - Categoria 1
   - Categoria 2
   - (...)
-offline: true
 --- 
 
 # Instruções para publicação de post
@@ -23,5 +23,4 @@ Por último, clique em *SAVE TO*, escolha *GitHub* e em *GitHub commit message* 
 
 # Links úteis
 
-- markdown
-- github
+- [Markdown: Basics](https://daringfireball.net/projects/markdown/basics)
