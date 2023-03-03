@@ -7,4 +7,4 @@ categorias:
   - Miguelices & Brunitezas 
 --- 
 
-Este é o nosso primeiro post.
+Este é o nosso *primeiro post*. Vamos fazer um teste.
