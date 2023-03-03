@@ -4,8 +4,10 @@ import { getCollection } from "astro:content";
 // Let's get the posts static paths and data (props) to create their pages:
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-  // Get all entries from blog collection:
-  const posts = await getCollection("blog");
+  // Get all entries from blog collection except the offline:
+  const posts = await getCollection("blog", ({ data }) => {
+    return data.offline !== true;
+  });
 
   // Creating and returning the static paths and props array:
   const staticPathsAndProps = posts.map((post) => {

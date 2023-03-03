@@ -1,8 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 
-// Get all entries from blog collection:
-const posts = await getCollection("blog");
+// Get all entries from blog collection except the offline:
+const posts = await getCollection("blog", ({ data }) => {
+  return data.offline !== true;
+});
 
 // Sort posts by id (which has the date on its start):
 posts.sort((a, b) => b.id.localeCompare(a.id));
