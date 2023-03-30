@@ -1,46 +1,34 @@
-# Astro Starter Kit: Minimal
+# Introdução & ferramentas utilizadas
 
-```
-npm create astro@latest -- --template minimal
-```
+Este código-fonte gera um blog composto unicamente de telas estáticas e hospedado em um servidor de arquivos gratuito.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+Resumidamente, funciona da seguinte forma: após a atualização de seu conteúdo via [Dillinger](https://dillinger.io/), uma ação automática dispara a reconstrução do blog e o atualiza em seu serviço de hospedagem, a plataforma adjunta [GitHub Pages](https://pages.github.com/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+O framework utilizado para a programação das telas do blog é o [Astro](https://astro.build/).
 
-## 🚀 Project Structure
+# Instruções para publicação de um novo post
 
-Inside of your Astro project, you'll see the following folders and files:
+Abra o [Dillinger](https://dillinger.io/), clique em *IMPORT FROM* e escolha a opção *GitHub*. Escolha o projeto, o branch *main* e, finalmente, o arquivo *src/content/blog/novo_post.md*.
 
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Aberto o documento, altere o *DOCUMENT NAME*. Ele deve ter o formato *YYYY_MM_DD_titulo_do_post.md* sendo que *YYYY_MM_DD* é a data de publicação e *titulo_do_post* é o título do post sem espaços e nem caracteres especiais. *YYYY_MM_DD_titulo_do_post* fará parte da URL do post (por exemplo: *meusite.com.br/blog/2020_10_20_titulo_do_post*).
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Em seguida, na metade esquerda da tela, sob o título *MARKDOWN*, altere as informações *titulo* (título do post), *descricao* (trecho ou resumo que poderá aparecer sob o título do post no índice do blog), *data_publicacao* (no formato declarado do modelo) e *categorias*. As categorias podem ser uma ou mais, sendo que cada uma deve ocupar uma linha, que inicia-se sempre com um traço.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Exclua o texto provisório *Aqui vai o conteúdo do post* e em seu lugar digite ou cole seu texto, utilizando [Markdown](https://daringfireball.net/projects/markdown/basics) para sua formatação.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Atenção: existem alguns poucos caracteres reservados que não devem ser utilizados em um texto Markdown. Veja aqui quais são e que códigos utilizar em seus lugares: <https://developer.mozilla.org/en-US/docs/Glossary/Entity>.
 
-## 🧞 Commands
+Vá acompanhando no lado direito da tela (sob o título *PREVIEW*) a aparência do texto. Você pode ignorar o cabeçalho superior com o título do post, data de publicação, etc. — ele não irá aparecer no blog. Quando o post estiver pronto para ser publicado, exclua a linha *offline* ou altere seu valor para *false*.
 
-All commands are run from the root of the project, from a terminal:
+Por último, clique em *SAVE TO*, escolha *GitHub* e em *GitHub commit message* escreva uma curta descrição sobre o que você acabou de fazer (por exemplo: *Publicação do post 'Meus livros favoritos'*).
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+Seu site começará a ser reconstruído e em poucos instantes estará atualizado. Para acompanhar o processo de reconstrução, vá ao respositório do site no GitHub e clique em *Actions*. Se ocorrer algum problema, entre em contato com o seu time de desenvolvimento.
 
-## 👀 Want to learn more?
+# Instruções para modificação de um novo post
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[em construção]
+
+# Links úteis
+
+- [Markdown: Basics](https://daringfireball.net/projects/markdown/basics)
+- [Caracteres reservados](https://developer.mozilla.org/en-US/docs/Glossary/Entity)
