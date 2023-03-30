@@ -1,4 +1,4 @@
-# Introdução & ferramentas utilizadas
+# Introdução
 
 Este código-fonte gera um blog composto unicamente de telas estáticas e hospedado em um servidor de arquivos gratuito.
 
@@ -24,7 +24,7 @@ Por último, clique em *SAVE TO*, escolha *GitHub* e em *GitHub commit message* 
 
 Seu site começará a ser reconstruído e em poucos instantes estará atualizado. Para acompanhar o processo de reconstrução, vá ao respositório do site no GitHub e clique em *Actions*. Se ocorrer algum problema, entre em contato com o seu time de desenvolvimento.
 
-# Instruções para modificação de um novo post
+# Instruções para modificação de um post
 
 [em construção]
 
