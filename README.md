@@ -20,9 +20,9 @@ Atenção: existem alguns poucos caracteres reservados que não devem ser utiliz
 
 Vá acompanhando no lado direito da tela (sob o título *PREVIEW*) a aparência do texto. Você pode ignorar o cabeçalho superior com o título do post, data de publicação, etc. — ele não irá aparecer no blog. Quando o post estiver pronto para ser publicado, exclua a linha *offline* ou altere seu valor para *false*.
 
-Por último, clique em *SAVE TO*, escolha *GitHub* e em *GitHub commit message* escreva uma curta descrição sobre o que você acabou de fazer (por exemplo: *Publicação do post 'Meus livros favoritos'*).
+Por último, clique em *SAVE TO*, escolha *GitHub* e em *GitHub Commit Message* escreva uma curta descrição sobre o que você acabou de fazer (por exemplo: *Publicação do post 'Meus livros favoritos'*). Pronto, agora é só clicar em *COMMIT*.
 
-Seu site começará a ser reconstruído e em poucos instantes estará atualizado. Para acompanhar o processo de reconstrução, vá ao respositório do site no GitHub e clique em *Actions*. Se ocorrer algum problema, entre em contato com o seu time de desenvolvimento.
+Seu site começará a ser reconstruído e em poucos instantes estará atualizado. Para acompanhar o processo de reconstrução, vá ao respositório do site no GitHub e clique em *Actions* (link direto: <https://github.com/fabricio-boppre/dveras3/actions>). Se ocorrer algum problema, entre em contato com o seu time de desenvolvimento.
 
 # Instruções para modificação de um post
 
