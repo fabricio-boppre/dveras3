@@ -21,7 +21,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "images/content",
       publicFolder: "public",
     },
   },
@@ -29,21 +29,62 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
+        name: "blog",
+        label: "Blog posts",
+        path: "src/content/blog",
         fields: [
           {
             type: "string",
-            name: "title",
-            label: "Title",
+            name: "titulo",
+            label: "Título",
             isTitle: true,
             required: true,
           },
           {
+            type: "boolean",
+            name: "offline",
+            label: "Offline",
+          },
+          {
+            type: "string",
+            name: "descricao",
+            label: "Descrição",
+          },
+          {
+            type: "datetime",
+            name: "data_publicacao",
+            label: "Data de publicação",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "categorias",
+            label: "Categorias",
+            list: true,
+            required: true,
+            options: [
+              {
+                value: "literatura",
+                label: "Literatura",
+              },
+              {
+                value: "miguelices_e_brunitezas",
+                label: "Miguelices & Brunitezas",
+              },
+              {
+                value: "cinema",
+                label: "Cinema",
+              },
+              {
+                value: "musica",
+                label: "Música",
+              },
+            ],
+          },
+          {
             type: "rich-text",
             name: "body",
-            label: "Body",
+            label: "Post",
             isBody: true,
           },
         ],

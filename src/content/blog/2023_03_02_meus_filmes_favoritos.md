@@ -1,12 +1,13 @@
 ---
 titulo: Meus filmes favoritos
-data_publicacao: 2023-03-02
+offline: false
+data_publicacao: 2023-03-02T03:00:00.000Z
 categorias:
-  - Cinema 
---- 
+  - cinema
+---
 
 Segue a lista:
 
-- Terminator
-- Unforgiven
-- Local Hero
+* Terminator
+* Unforgiven
+* Local Hero

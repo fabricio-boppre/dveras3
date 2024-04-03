@@ -1,14 +1,14 @@
 ---
 titulo: Minhas bandas favoritas
-descricao: Uma lista fulgaz de minhas bandas favoritas.
-data_publicacao: 2023-03-03
+descricao: Uma lista de minhas bandas favoritas.
+data_publicacao: 2022-12-11T03:00:00.000Z
 categorias:
-  - Música
---- 
+  - musica
+---
 
 Minhas bandas favoritas, neste momento, são:
 
 - Pearl Jam
 - Midnight Oil
-- Karma to Burn
-- Neil Young & Crazy Horse
+- a-ha
+- Talk Talk
