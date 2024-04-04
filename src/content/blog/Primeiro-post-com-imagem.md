@@ -5,6 +5,4 @@ categorias:
   - musica
 ---
 
-Apenas uma foto do Morro das Pedras:
-
-![](/images/content/content_Praia-do-Morro-da-Pedras-Florianópolis-por-casavistamar.jpg)
+Apenas uma foto do Morro das Pedras.
