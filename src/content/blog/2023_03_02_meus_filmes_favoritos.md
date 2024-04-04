@@ -11,3 +11,4 @@ Segue a lista:
 * Terminator
 * Unforgiven
 * Local Hero
+* O Silêncio dos Inocentes
