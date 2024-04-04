@@ -21,7 +21,6 @@ export default defineConfig({
     publicFolder: "public",
   },
   media: {
-    basePath: "dveras3",
     tina: {
       mediaRoot: "images/content",
       publicFolder: "public",
