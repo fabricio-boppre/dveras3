@@ -24,7 +24,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id));
       {
         posts.map((post) => (
           <li>
-            <a href={`/dveras3/blog/${post.slug}`}>{post.data.titulo}</a>
+            <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
           </li>
         ))
       }
