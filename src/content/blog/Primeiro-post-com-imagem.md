@@ -6,3 +6,5 @@ categorias:
 ---
 
 Apenas uma foto do Morro das Pedras.
+
+![](/images/content/Morro-das-Pedras.jpg)
