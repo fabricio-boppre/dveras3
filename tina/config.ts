@@ -16,7 +16,6 @@ export default defineConfig({
   token: "eae1adefb3c5bf89772949629bf3f7ac448beb6d",
 
   build: {
-    basePath: "dveras3",
     outputFolder: "admin",
     publicFolder: "public",
   },
