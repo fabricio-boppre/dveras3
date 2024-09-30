@@ -1,7 +1,8 @@
 ---
-import "../styles/index.css"
-import { css } from '../../styled-system/css'
+import BasicLayout from "../layouts/basicLayout.astro"
 import { getCollection } from "astro:content"
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 // Get all entries from blog collection except the offline:
 const posts = await getCollection("blog", ({ data }) => {
@@ -12,16 +13,11 @@ const posts = await getCollection("blog", ({ data }) => {
 posts.sort((a, b) => b.id.localeCompare(a.id));
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1 class={css({ fontSize: "2xl", fontWeight: 'bold' })}>dveras em rede</h1>
+<BasicLayout
+  title="dveras em rede"
+  description="Pai de dois rapazes, marido, jornalista, roteirista. Pernambucano de nascimento, filho de cearenses, potiguar e catarinense por adoção. Migrante - filho de todos os cantos e de canto nenhum."
+  url={canonicalURL.href}
+>
     <ul>
       {
         posts.map((post) => (
@@ -31,5 +27,4 @@ posts.sort((a, b) => b.id.localeCompare(a.id));
         ))
       }
     </ul>
-  </body>
-</html>
+</BasicLayout>

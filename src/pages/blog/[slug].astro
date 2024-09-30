@@ -1,5 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+import BasicLayout from "../../layouts/basicLayout.astro"
+import { getCollection } from "astro:content"
+import { css } from '../../../styled-system/css'
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 // Let's get the posts static paths and data (props) to create their pages:
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
@@ -24,17 +28,11 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>dveras em rede</h1>
-    <h2>{post.data.titulo}</h2>
+<BasicLayout
+  title="dveras em rede"
+  description="descrição do post."
+  url={canonicalURL.href}
+>
+    <h2 class={css({ fontSize: "2xl", fontWeight: 'bold' })}>{post.data.titulo}</h2>
     <Content />
-  </body>
-</html>
+</BasicLayout>
