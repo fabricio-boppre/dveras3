@@ -1,5 +1,7 @@
 ---
-import { getCollection } from "astro:content";
+import "../styles/index.css"
+import { css } from '../../styled-system/css'
+import { getCollection } from "astro:content"
 
 // Get all entries from blog collection except the offline:
 const posts = await getCollection("blog", ({ data }) => {
@@ -19,7 +21,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id));
     <title>Astro</title>
   </head>
   <body>
-    <h1>dveras em rede</h1>
+    <h1 class={css({ fontSize: "2xl", fontWeight: 'bold' })}>dveras em rede</h1>
     <ul>
       {
         posts.map((post) => (

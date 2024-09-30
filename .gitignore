@@ -23,4 +23,6 @@ pnpm-debug.log*
 # Astro-specific directories
 .astro
 
-node_modules
+## Panda
+styled-system
+styled-system-studio
