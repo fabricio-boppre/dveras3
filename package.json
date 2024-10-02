@@ -11,12 +11,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.9",
-    "tinacms": "^2.2.5"
+    "astro": "^4.15.10",
+    "tinacms": "^2.2.8"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.46.1",
-    "@tinacms/cli": "^1.6.5",
+    "@tinacms/cli": "^1.6.8",
     "@types/node": "^22.7.4"
   }
 }
