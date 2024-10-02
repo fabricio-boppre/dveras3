@@ -1,6 +1,8 @@
 ---
 import "../styles/index.css"
 import { css } from '../../styled-system/css'
+import { AstroContentDevtools } from 'astro-content-devtools'
+import { collections } from '../content/config'
 
 const { title, description, url } = Astro.props
 ---
@@ -13,8 +15,8 @@ const { title, description, url } = Astro.props
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-        <h1 class={css({ fontSize: "3xl", fontWeight: 'bold' })}>dveras em rede</h1>
-
+    <h1 class={css({ fontSize: "3xl", fontWeight: 'bold' })}>dveras em rede</h1>
+    <AstroContentDevtools collections={collections} />
     <slot />
   </body>
 </html>

@@ -15,8 +15,11 @@
     "tinacms": "^2.2.8"
   },
   "devDependencies": {
+    "@astrojs/solid-js": "^4.4.2",
     "@pandacss/dev": "^0.46.1",
     "@tinacms/cli": "^1.6.8",
-    "@types/node": "^22.7.4"
+    "@types/node": "^22.7.4",
+    "astro-content-devtools": "^0.1.0",
+    "solid-js": "^1.9.1"
   }
 }
