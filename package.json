@@ -20,6 +20,8 @@
     "@tinacms/cli": "^1.6.8",
     "@types/node": "^22.7.4",
     "astro-content-devtools": "^0.1.0",
+    "eslint": "^9.11.1",
+    "eslint-plugin-astro": "^1.2.4",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "solid-js": "^1.9.1"
