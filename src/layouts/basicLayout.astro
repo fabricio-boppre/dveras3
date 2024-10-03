@@ -1,6 +1,7 @@
 ---
 import "../styles/index.css"
 import { css } from "../../styled-system/css"
+import { flex } from "../../styled-system/patterns"
 import { AstroContentDevtools } from "astro-content-devtools"
 import { collections } from "../content/config"
 
@@ -14,9 +15,24 @@ const { title, description, url } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body>
-    <h1 class={css({ fontSize: "3xl", fontWeight: "bold" })}>dveras em rede</h1>
+  <body
+    class={flex({
+      maxW: "1000px",
+      m: "0 auto",
+      minH: "100vh",
+      flexDirection: "column",
+      h: "100%",
+    })}
+  >
+    <header class={css({ flex: "none" })}>
+      <h1 class={css({ fontSize: "3xl", fontWeight: "bold" })}>
+        dveras em rede
+      </h1>
+    </header>
+    <main class={css({ flex: "1 0 auto" })}>
+      <slot />
+    </main>
+    <footer class={css({ flex: "none" })}>rodapé em construção</footer>
     <AstroContentDevtools collections={collections} />
-    <slot />
   </body>
 </html>
