@@ -6,11 +6,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 // Get all entries from blog collection except the offline:
 const posts = await getCollection("blog", ({ data }) => {
-  return data.offline !== true;
-});
+  return data.offline !== true
+})
 
 // Sort posts by id (which has the date on its start):
-posts.sort((a, b) => b.id.localeCompare(a.id));
+posts.sort((a, b) => b.id.localeCompare(a.id))
 ---
 
 <BasicLayout
@@ -18,13 +18,13 @@ posts.sort((a, b) => b.id.localeCompare(a.id));
   description="Pai de dois rapazes, marido, jornalista, roteirista. Pernambucano de nascimento, filho de cearenses, potiguar e catarinense por adoção. Migrante - filho de todos os cantos e de canto nenhum."
   url={canonicalURL.href}
 >
-    <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
-          </li>
-        ))
-      }
-    </ul>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
+        </li>
+      ))
+    }
+  </ul>
 </BasicLayout>
