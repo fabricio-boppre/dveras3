@@ -1,9 +1,11 @@
 ---
-import "../styles/index.css"
-import { css } from "../../styled-system/css"
-import { flex } from "../../styled-system/patterns"
+import "@styles/index.css"
+import { Picture } from "astro:assets"
+import logo from "@images/logo.png"
+import { css } from "@styled-system/css"
+import { flex } from "@styled-system/patterns"
 import { AstroContentDevtools } from "astro-content-devtools"
-import { collections } from "../content/config"
+import { collections } from "@content/config"
 
 const { title, description, url } = Astro.props
 ---
@@ -17,17 +19,27 @@ const { title, description, url } = Astro.props
   </head>
   <body
     class={flex({
+      bg: "white",
+      _osDark: { bg: "black" },
       maxW: "1000px",
       m: "0 auto",
+      px: "20px",
       minH: "100vh",
       flexDirection: "column",
       h: "100%",
     })}
   >
-    <header class={css({ flex: "none" })}>
-      <h1 class={css({ fontSize: "3xl", fontWeight: "bold" })}>
-        dveras em rede
-      </h1>
+    <header
+      class={flex({
+        flex: "none",
+        py: "40px",
+        justifyContent: "space-between",
+      })}
+    >
+      <Picture src={logo} formats={["webp"]} alt="dveras em rede" />
+      <div id="options">
+        <a href="/sobre">sobre</a>
+      </div>
     </header>
     <main class={css({ flex: "1 0 auto" })}>
       <slot />
