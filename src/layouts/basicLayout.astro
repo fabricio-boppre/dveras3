@@ -4,23 +4,26 @@ import { Picture } from "astro:assets"
 import logo from "@images/logo.png"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
-import { AstroContentDevtools } from "astro-content-devtools"
-import { collections } from "@content/config"
+import "@fontsource-variable/noto-sans"
+import ThemeManager from "@components/ThemeManager.astro"
+import ThemeSelect from "@components/ThemeSelect.astro"
+import { ViewTransitions } from "astro:transitions"
 
 const { title, description, url } = Astro.props
 ---
 
-<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <ThemeManager defaultTheme="auto" />
+    <ViewTransitions />
   </head>
+
   <body
     class={flex({
-      bg: "white",
-      _osDark: { bg: "black" },
+      bgColor: "mainBg",
       maxW: "1000px",
       m: "0 auto",
       px: "20px",
@@ -36,15 +39,30 @@ const { title, description, url } = Astro.props
         justifyContent: "space-between",
       })}
     >
-      <Picture src={logo} formats={["webp"]} alt="dveras em rede" />
+      <a href="/">
+        <Picture src={logo} formats={["webp"]} alt="dveras em rede" />
+      </a>
       <div id="options">
-        <a href="/sobre">sobre</a>
+        <a
+          class={css({
+            fontFamily: "Noto Sans Variable, sans-serif",
+            color: "basicText",
+          })}
+          href="/sobre">sobre</a
+        >
+        <ThemeSelect />
       </div>
     </header>
     <main class={css({ flex: "1 0 auto" })}>
       <slot />
     </main>
-    <footer class={css({ flex: "none" })}>rodapé em construção</footer>
-    <AstroContentDevtools collections={collections} />
+    <footer
+      class={css({
+        flex: "none",
+        color: "basicText",
+      })}
+    >
+      rodapé em construção
+    </footer>
   </body>
 </html>

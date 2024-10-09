@@ -1,4 +1,4 @@
-import { defineConfig } from "@pandacss/dev";
+import { defineConfig } from "@pandacss/dev"
 
 export default defineConfig({
   // Whether to use css reset
@@ -13,11 +13,34 @@ export default defineConfig({
   // Files to exclude
   exclude: [],
 
+  // Conditions to apply different styles and behaviors based on specific conditions or states
+  conditions: {
+    light: "[data-theme=light] &",
+    dark: "[data-theme=dark] &",
+  },
+
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      semanticTokens: {
+        colors: {
+          mainBg: {
+            value: {
+              _light: "{colors.white}",
+              _dark: "{colors.black}",
+            },
+          },
+          basicText: {
+            value: {
+              _light: "{colors.black}",
+              _dark: "{colors.white}",
+            },
+          },
+        },
+      },
+    },
   },
 
   // The output directory for your css system
   outdir: "styled-system",
-});
+})
