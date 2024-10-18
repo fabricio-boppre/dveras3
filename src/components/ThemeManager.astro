@@ -2,7 +2,9 @@
 const { defaultTheme = "auto" } = Astro.props
 ---
 
+<!-- Theme Manager Component: https://astro-tips.dev/recipes/dark-mode/ -->
 <script is:inline data-default-theme={defaultTheme}>
+  // Nullish coalescing assignment (??=): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment
   window.theme ??= (() => {
     const defaultTheme =
       document.currentScript.getAttribute("data-default-theme")

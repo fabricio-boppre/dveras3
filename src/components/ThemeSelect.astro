@@ -1,31 +1,28 @@
-<theme-selector></theme-selector>
+---
+import { css } from "@styled-system/css"
+---
+
+<!-- Theme Select Component: https://astro-tips.dev/recipes/dark-mode/ -->
+<span
+  class={css({
+    ml: "10px",
+  })}
+  >Tema:
+</span>
+<select id="themeSelector" transition:persist>
+  <option value="auto">Auto</option>
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
 <script is:inline>
-  if (!customElements.get("theme-selector")) {
-    customElements.define(
-      "theme-selector",
-      class extends HTMLElement {
-        connectedCallback() {
-          this.innerHTML = `
-            <select>
-              <option value="auto">Auto</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-          `
-          this.querySelector("select").onchange = (event) =>
-            theme.setTheme(event.target.value)
-          this.setAttribute("aria-label", "Select Theme")
-          this.updateSelectedTheme()
-
-          document.addEventListener("theme-changed", (event) => {
-            this.updateSelectedTheme(event.detail.theme)
-          })
-        }
-
-        updateSelectedTheme(newTheme = theme.getTheme()) {
-          this.querySelector("select").value = newTheme
-        }
-      },
-    )
+  const selector = document.getElementById("themeSelector")
+  selector.onchange = (event) => theme.setTheme(event.target.value)
+  updateSelectedTheme()
+  document.addEventListener("theme-changed", (event) => {
+    updateSelectedTheme(event.detail.theme)
+  })
+  function updateSelectedTheme(newTheme = theme.getTheme()) {
+    selector.value = newTheme
   }
 </script>
