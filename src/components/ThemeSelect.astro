@@ -1,28 +1,107 @@
 ---
 import { css } from "@styled-system/css"
+import { flex } from "@styled-system/patterns"
+
+const themeIconsStyles =
+  "themeIcon " +
+  css({
+    display: "none",
+    fill: "currentColor",
+    m: "3px 3px 0 0",
+    w: "16px",
+    h: "16px",
+    "&.active": {
+      display: "block",
+    },
+  })
 ---
 
 <!-- Theme Select Component: https://astro-tips.dev/recipes/dark-mode/ -->
-<span
-  class={css({
-    ml: "10px",
+<label
+  class={flex({
+    ml: "20px",
+    alignItems: "center",
+    h: "inherit",
   })}
-  >Tema:
-</span>
-<select id="themeSelector" transition:persist>
-  <option value="auto">Auto</option>
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-</select>
+  for="theme-selector"
+>
+  <svg
+    class={themeIconsStyles}
+    data-theme-code="auto"
+    aria-hidden="true"
+    viewBox="0 0 22 22"
+  >
+    <path
+      d="M 20,13 H 19 V 6 A 3,3 0 0 0 16,3 H 6 A 3,3 0 0 0 3,6 v 7 H 2 a 1,1 0 0 0 -1,1 v 2 a 3,3 0 0 0 3,3 h 14 a 3,3 0 0 0 3,-3 V 14 A 1,1 0 0 0 20,13 Z M 5,6 A 1,1 0 0 1 6,5 h 10 a 1,1 0 0 1 1,1 v 7 H 5 Z m 14,10 a 1,1 0 0 1 -1,1 H 4 A 1,1 0 0 1 3,16 v -1 h 16 z"
+    ></path>
+  </svg>
+  <svg
+    class={themeIconsStyles}
+    data-theme-code="light"
+    aria-hidden="true"
+    viewBox="0 0 22 22"
+  >
+    <path
+      d="M 4,11 A 1,1 0 0 0 3,10 H 2 a 1,1 0 0 0 0,2 h 1 a 1,1 0 0 0 1,-1 z m 0.64,5 -0.71,0.71 a 1,1 0 0 0 0,1.41 1,1 0 0 0 1.41,0 L 6.05,17.41 A 1,1 0 0 0 4.64,16 Z M 11,4 A 1,1 0 0 0 12,3 V 2 a 1,1 0 0 0 -2,0 v 1 a 1,1 0 0 0 1,1 z m 5.66,2.34 a 1,1 0 0 0 0.7,-0.29 L 18.07,5.34 A 1,1 0 1 0 16.66,3.93 L 16,4.64 a 1,1 0 0 0 0,1.41 1,1 0 0 0 0.66,0.29 z m -12,-0.29 a 1,1 0 0 0 1.41,0 1,1 0 0 0 0,-1.41 L 5.36,3.93 A 1.0041165,1.0041165 0 1 0 3.93,5.34 Z M 20,10 h -1 a 1,1 0 0 0 0,2 h 1 a 1,1 0 0 0 0,-2 z m -2.64,6 A 1,1 0 0 0 16,17.36 l 0.71,0.71 a 1,1 0 0 0 1.41,0 1,1 0 0 0 0,-1.41 z M 11,5.5 A 5.5,5.5 0 1 0 16.5,11 5.51,5.51 0 0 0 11,5.5 Z m 0,9 a 3.5,3.5 0 1 1 0,-7 3.5,3.5 0 0 1 0,7 z m 0,3.5 a 1,1 0 0 0 -1,1 v 1 a 1,1 0 0 0 2,0 v -1 a 1,1 0 0 0 -1,-1 z"
+    ></path>
+  </svg>
+  <svg
+    class={themeIconsStyles}
+    data-theme-code="dark"
+    aria-hidden="true"
+    viewBox="0 0 22 22"
+  >
+    <path
+      d="M 19.646457,11.878969 A 0.8993393,0.8993393 0 0 0 18.702151,11.753061 7.2387821,7.2387821 0 0 1 15.671378,12.409579 7.3296153,7.3296153 0 0 1 8.3507553,5.1249311 7.7253246,7.7253246 0 0 1 8.5755901,3.3262525 0.8993393,0.8993393 0 0 0 7.3794689,2.309999 9.1193005,9.1193005 0 1 0 19.970219,12.823275 0.8993393,0.8993393 0 0 0 19.646457,11.878969 Z m -8.543723,6.01658 A 7.3206219,7.3206219 0 0 1 6.5520767,4.8821095 v 0.2428216 a 9.1282939,9.1282939 0 0 0 9.1193013,9.1192999 8.7991358,8.7991358 0 0 0 1.888612,-0.197854 7.2936418,7.2936418 0 0 1 -6.457256,3.885145 z"
+    ></path>
+  </svg>
+  <select
+    class={css({
+      bgColor: "mainBg",
+      h: "inherit",
+      pl: "3px",
+    })}
+    id="themeSelector"
+    name="theme-selector"
+    transition:persist
+  >
+    <option value="auto">auto</option>
+    <option value="light">claro</option>
+    <option value="dark">escuro</option>
+  </select>
+</label>
 
 <script is:inline>
   const selector = document.getElementById("themeSelector")
-  selector.onchange = (event) => theme.setTheme(event.target.value)
+
+  // On changing the theme via selector:
+  selector.onchange = (event) => {
+    // Deactivate the current icon theme:
+    document.querySelector(".active").classList.remove("active")
+    // Activate the new icon theme:
+    activateIcon(event.target.value)
+    // Set the new theme:
+    theme.setTheme(event.target.value)
+  }
+
+  // On opening the page, update the theme selector and icon:
   updateSelectedTheme()
+
+  // On changing the theme via browser, update the theme selector and icon:
   document.addEventListener("theme-changed", (event) => {
     updateSelectedTheme(event.detail.theme)
   })
+
+  // Function that update the theme selector and icon:
   function updateSelectedTheme(newTheme = theme.getTheme()) {
+    activateIcon(newTheme)
     selector.value = newTheme
+  }
+
+  // Function that activate the theme icon:
+  function activateIcon(theme) {
+    document
+      .querySelector('[data-theme-code="' + theme + '"]')
+      .classList.add("active")
   }
 </script>

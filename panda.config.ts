@@ -1,4 +1,5 @@
 import { defineConfig } from "@pandacss/dev"
+import { textStyles } from "./src/styles/text-styles"
 
 export default defineConfig({
   // Whether to use css reset
@@ -22,6 +23,13 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
+      textStyles,
+      tokens: {
+        sizes: { headerOptionsHeight: { value: "30px" } },
+        lineHeights: {
+          headerOptionsLineHeight: { value: "30px" },
+        },
+      },
       semanticTokens: {
         colors: {
           mainBg: {
