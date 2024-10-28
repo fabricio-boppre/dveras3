@@ -6,8 +6,9 @@ const themeIconsStyles =
   "themeIcon " +
   css({
     display: "none",
+    position: "absolute",
     fill: "currentColor",
-    m: "3px 3px 0 0",
+    ml: "10px",
     w: "16px",
     h: "16px",
     "&.active": {
@@ -21,7 +22,6 @@ const themeIconsStyles =
   class={flex({
     ml: "20px",
     alignItems: "center",
-    h: "inherit",
   })}
   for="theme-selector"
 >
@@ -55,20 +55,45 @@ const themeIconsStyles =
       d="M 19.646457,11.878969 A 0.8993393,0.8993393 0 0 0 18.702151,11.753061 7.2387821,7.2387821 0 0 1 15.671378,12.409579 7.3296153,7.3296153 0 0 1 8.3507553,5.1249311 7.7253246,7.7253246 0 0 1 8.5755901,3.3262525 0.8993393,0.8993393 0 0 0 7.3794689,2.309999 9.1193005,9.1193005 0 1 0 19.970219,12.823275 0.8993393,0.8993393 0 0 0 19.646457,11.878969 Z m -8.543723,6.01658 A 7.3206219,7.3206219 0 0 1 6.5520767,4.8821095 v 0.2428216 a 9.1282939,9.1282939 0 0 0 9.1193013,9.1192999 8.7991358,8.7991358 0 0 0 1.888612,-0.197854 7.2936418,7.2936418 0 0 1 -6.457256,3.885145 z"
     ></path>
   </svg>
-  <select
+  <div
     class={css({
-      bgColor: "mainBg",
-      h: "inherit",
-      pl: "3px",
+      position: "relative",
+      _before: {
+        layerStyle: "themeSelectorBeforeAfterStyles",
+        borderBottomWidth: "themeSelectorArrowWidth",
+        borderBottomStyle: "solid",
+        borderBottomColor: "basicText",
+        top: "35%",
+      },
+      _after: {
+        layerStyle: "themeSelectorBeforeAfterStyles",
+        borderTopWidth: "themeSelectorArrowWidth",
+        borderTopStyle: "solid",
+        borderTopColor: "basicText",
+        top: "55%",
+      },
     })}
-    id="themeSelector"
-    name="theme-selector"
-    transition:persist
   >
-    <option value="auto">auto</option>
-    <option value="light">claro</option>
-    <option value="dark">escuro</option>
-  </select>
+    <select
+      class={css({
+        bgColor: "transparent",
+        appearance: "none",
+        px: "36px",
+        pb: "headerOptionsTextBottomPadding",
+        cursor: "pointer",
+        "& option": {
+          bgColor: "mainBg",
+        },
+      })}
+      id="themeSelector"
+      name="theme-selector"
+      transition:persist
+    >
+      <option value="auto">auto</option>
+      <option value="light">claro</option>
+      <option value="dark">escuro</option>
+    </select>
+  </div>
 </label>
 
 <script is:inline>

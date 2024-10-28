@@ -1,5 +1,6 @@
 import { defineConfig } from "@pandacss/dev"
 import { textStyles } from "./src/styles/text-styles"
+import { layerStyles } from "./src/styles/layer-styles"
 
 export default defineConfig({
   // Whether to use css reset
@@ -24,10 +25,16 @@ export default defineConfig({
   theme: {
     extend: {
       textStyles,
+      layerStyles,
       tokens: {
-        sizes: { headerOptionsHeight: { value: "30px" } },
-        lineHeights: {
-          headerOptionsLineHeight: { value: "30px" },
+        sizes: {
+          headerOptionsHeight: { value: "30px" },
+        },
+        spacing: {
+          headerOptionsTextBottomPadding: { value: "3px" },
+        },
+        borderWidths: {
+          themeSelectorArrowWidth: { value: "0.3rem" },
         },
       },
       semanticTokens: {
