@@ -38,6 +38,14 @@ export default defineConfig({
         },
       },
       semanticTokens: {
+        assets: {
+          logo: {
+            value: {
+              _light: "url(/images/layout/logo-light-theme.png)",
+              _dark: "url(/images/layout/logo-dark-theme.png)",
+            },
+          },
+        },
         colors: {
           mainBg: {
             value: {

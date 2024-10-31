@@ -1,7 +1,5 @@
 ---
 import "@styles/index.css"
-import { Picture } from "astro:assets"
-import logo from "@images/logo.png"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/noto-sans"
@@ -40,8 +38,17 @@ const { title, description, url } = Astro.props
         alignItems: "center",
       })}
     >
-      <a href="/">
-        <Picture src={logo} formats={["webp"]} alt="dveras em rede" />
+      <a
+        class={css({
+          w: "500px",
+          h: "60px",
+          bgImage: "logo",
+          bgSize: "contain",
+          bgRepeat: "no-repeat",
+          bgPosition: "center",
+        })}
+        href="/"
+      >
       </a>
       <div
         id="options"
