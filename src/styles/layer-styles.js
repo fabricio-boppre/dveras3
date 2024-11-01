@@ -6,7 +6,7 @@ export const layerStyles = defineLayerStyles({
     value: {
       position: "absolute",
       content: '""',
-      right: "15px",
+      right: "5px",
       pointerEvents: "none",
       borderLeftStyle: "solid",
       borderLeftColor: "transparent",
