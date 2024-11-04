@@ -1,13 +1,12 @@
 import { defineTextStyles } from "@pandacss/dev"
 
 export const textStyles = defineTextStyles({
-  headerOptions: {
-    description: "Header options text style.",
+  headerAndFooter: {
+    description: "Header & footer text style.",
     value: {
-      fontFamily: "Noto Sans Variable, sans-serif",
+      fontFamily: "Verdana, sans-serif",
       fontWeight: "400",
-      fontSize: ["18px", undefined, "20px"],
-      lineHeight: "headerOptionsLineHeight",
+      fontSize: ["18px"],
     },
   },
 })

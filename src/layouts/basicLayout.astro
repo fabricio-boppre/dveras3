@@ -55,16 +55,15 @@ const { title, description, url } = Astro.props
         id="options"
         class={flex({
           alignItems: "center",
-          h: "headerOptionsHeight",
-          textStyle: "headerOptions",
+          textStyle: "headerAndFooter",
           color: "basicText",
+          h: "60px",
           mt: { base: "15px", md: "0px" },
         })}
       >
         <a
           class={css({
             mr: "20px",
-            pb: "headerOptionsTextBottomPadding",
           })}
           href="/sobre">sobre</a
         >
@@ -75,12 +74,30 @@ const { title, description, url } = Astro.props
       <slot />
     </main>
     <footer
-      class={css({
+      class={flex({
         flex: "none",
+        textStyle: "headerAndFooter",
         color: "basicText",
+        justifyContent: "space-between",
+        bgColor: "#eaeaea",
+        p: "20px",
+        "& a": {
+          textDecoration: "underline",
+        },
       })}
     >
-      rodapé em construção
+      <div class={css({})}>categorias</div>
+      <div class={css({ textAlign: "right" })}>
+        <p>Escrito por Dauro Veras</p>
+        <p>
+          Desenvolvido por <a
+            href="https://www.fabricioboppre.net"
+            target="_blank">Fabricio C. Boppré</a
+          >
+        </p>
+        <p>creative commons?</p>
+        <p>RSS</p>
+      </div>
     </footer>
   </body>
 </html>
