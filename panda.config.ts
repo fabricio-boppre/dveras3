@@ -27,7 +27,9 @@ export default defineConfig({
       textStyles,
       layerStyles,
       tokens: {
-        sizes: {},
+        sizes: {
+          headerHeight: { value: "60px" },
+        },
         spacing: {},
         borderWidths: {
           themeSelectorArrowWidth: { value: "0.3rem" },
