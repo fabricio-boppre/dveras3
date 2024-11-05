@@ -51,6 +51,12 @@ export default defineConfig({
               _dark: "{colors.black}",
             },
           },
+          footerBg: {
+            value: {
+              _light: "{colors.gray.200}",
+              _dark: "{colors.gray.800}",
+            },
+          },
           basicText: {
             value: {
               _light: "{colors.black}",
