@@ -1,11 +1,26 @@
 ---
 import "@styles/index.css"
+import slug from "slug"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/noto-sans"
 import ThemeManager from "@components/ThemeManager.astro"
 import ThemeSelect from "@components/ThemeSelect.astro"
 import { ViewTransitions } from "astro:transitions"
+import { getCollection } from "astro:content"
+
+// (...)
+const posts = await getCollection("blog", ({ data }) => {
+  return data.offline !== true
+})
+
+const tags = [...new Set(posts.map((post) => post.data.categorias).flat())]
+const tagsArray = tags.map((tag) => ({
+  value: tag,
+  slug: slug(tag),
+}))
+console.log(posts)
+console.log(tagsArray)
 
 const { title, description, url } = Astro.props
 ---
@@ -81,16 +96,27 @@ const { title, description, url } = Astro.props
         justifyContent: "space-between",
         bgColor: "footerBg",
         p: "20px",
+        borderTopRadius: "lg",
         "& a": {
           textDecoration: "underline",
         },
       })}
     >
-      <div class={css({})}>categorias</div>
+      <div class={css({})}>
+        <h1 class={css({ fontWeight: "bold" })}>categorias</h1>
+
+        {
+          tagsArray.map((tag) => (
+            <p>
+              <a href={`/categoria/${tag.slug}`}>{tag.value}</a>
+            </p>
+          ))
+        }
+      </div>
       <div class={css({ textAlign: "right" })}>
-        <p>Escrito por Dauro Veras</p>
+        <p>escrito por Dauro Veras (link para "sobre"?)</p>
         <p>
-          Desenvolvido por <a
+          desenvolvido por <a
             href="https://www.fabricioboppre.net"
             target="_blank">Fabricio C. Boppré</a
           >

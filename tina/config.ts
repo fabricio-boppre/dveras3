@@ -1,11 +1,11 @@
-import { defineConfig } from "tinacms";
+import { defineConfig } from "tinacms"
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
-  "main";
+  "main"
 
 export default defineConfig({
   branch,
@@ -64,19 +64,19 @@ export default defineConfig({
             required: true,
             options: [
               {
-                value: "literatura",
+                value: "Literatura",
                 label: "Literatura",
               },
               {
-                value: "miguelices_e_brunitezas",
+                value: "Miguelices & Brunitezas",
                 label: "Miguelices & Brunitezas",
               },
               {
-                value: "cinema",
+                value: "Cinema",
                 label: "Cinema",
               },
               {
-                value: "musica",
+                value: "Música",
                 label: "Música",
               },
             ],
@@ -91,4 +91,4 @@ export default defineConfig({
       },
     ],
   },
-});
+})
