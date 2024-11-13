@@ -30,7 +30,7 @@ export default defineConfig({
         sizes: {
           headerHeight: { value: "60px" },
         },
-        spacing: {},
+        spacing: { headerOptionsPaddingBottom: { value: "2px" } },
         borderWidths: {
           themeSelectorArrowWidth: { value: "0.3rem" },
         },

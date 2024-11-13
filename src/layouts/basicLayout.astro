@@ -19,8 +19,6 @@ const tagsArray = tags.map((tag) => ({
   value: tag,
   slug: slug(tag),
 }))
-console.log(posts)
-console.log(tagsArray)
 
 const { title, description, url } = Astro.props
 ---
@@ -72,13 +70,14 @@ const { title, description, url } = Astro.props
           alignItems: "center",
           textStyle: "headerAndFooter",
           color: "basicText",
-          h: "headerHeight",
+          h: { base: "30px", md: "headerHeight" },
           mt: { base: "15px", md: "0px" },
         })}
       >
         <a
           class={css({
             mr: "20px",
+            pb: "headerOptionsPaddingBottom",
           })}
           href="/sobre">sobre</a
         >
