@@ -64,19 +64,19 @@ export default defineConfig({
             required: true,
             options: [
               {
-                value: "Literatura",
+                value: "literatura",
                 label: "Literatura",
               },
               {
-                value: "Miguelices & Brunitezas",
+                value: "miguelices-brunitezas",
                 label: "Miguelices & Brunitezas",
               },
               {
-                value: "Cinema",
+                value: "cinema",
                 label: "Cinema",
               },
               {
-                value: "Música",
+                value: "musica",
                 label: "Música",
               },
             ],

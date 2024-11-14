@@ -4,12 +4,12 @@ import { getCollection } from "astro:content"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// Get all entries from blog collection except the offline:
+// Get all entries from blog collection (except the offline) and sort them:
 const posts = await getCollection("blog", ({ data }) => {
   return data.offline !== true
 })
-// Sort posts by id (which has the date on its start):
 posts.sort((a, b) => b.id.localeCompare(a.id))
+// console.log(posts)
 ---
 
 <BasicLayout

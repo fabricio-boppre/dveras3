@@ -1,6 +1,5 @@
 ---
 import "@styles/index.css"
-import slug from "slug"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/noto-sans"
@@ -9,16 +8,9 @@ import ThemeSelect from "@components/ThemeSelect.astro"
 import { ViewTransitions } from "astro:transitions"
 import { getCollection } from "astro:content"
 
-// (...)
-const posts = await getCollection("blog", ({ data }) => {
-  return data.offline !== true
-})
-
-const tags = [...new Set(posts.map((post) => post.data.categorias).flat())]
-const tagsArray = tags.map((tag) => ({
-  value: tag,
-  slug: slug(tag),
-}))
+// Get all entries from categorias collection and sort them:
+const categorias = await getCollection("categorias")
+categorias.sort((a, b) => a.id.localeCompare(b.id))
 
 const { title, description, url } = Astro.props
 ---
@@ -103,17 +95,20 @@ const { title, description, url } = Astro.props
     >
       <div class={css({})}>
         <h1 class={css({ fontWeight: "bold" })}>categorias</h1>
-
-        {
-          tagsArray.map((tag) => (
-            <p>
-              <a href={`/categoria/${tag.slug}`}>{tag.value}</a>
-            </p>
-          ))
-        }
+        <ul class={css({ listStyleType: "none" })}>
+          {
+            categorias.map((categoria) => (
+              <li>
+                <a href={`/categoria/${categoria.slug}`}>
+                  {categoria.data.titulo}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
       <div class={css({ textAlign: "right" })}>
-        <p>escrito por Dauro Veras (link para "sobre"?)</p>
+        <p>escrito por <a href="/sobre">Dauro Veras</a></p>
         <p>
           desenvolvido por <a
             href="https://www.fabricioboppre.net"
