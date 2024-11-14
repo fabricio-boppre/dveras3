@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@fontsource-variable/noto-sans": "^5.1.0",
-    "astro": "^4.16.10",
+    "astro": "^4.16.12",
     "slug": "^10.0.0",
     "tinacms": "^2.4.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.47.1",
+    "@pandacss/dev": "^0.48.0",
     "@tinacms/cli": "^1.6.11",
     "@types/node": "^22.9.0",
     "eslint": "^9.14.0",
