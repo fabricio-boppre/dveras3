@@ -85,6 +85,7 @@ const { title, description, url } = Astro.props
         textStyle: "headerAndFooter",
         color: "basicText",
         justifyContent: "space-between",
+        flexDirection: { base: "column", md: "row" },
         bgColor: "footerBg",
         p: "20px",
         borderTopRadius: "lg",
@@ -93,7 +94,13 @@ const { title, description, url } = Astro.props
         },
       })}
     >
-      <div class={css({})}>
+      <div
+        class={css({
+          textAlign: { base: "center", md: "left" },
+          order: { base: "2", md: "1" },
+          mt: { base: "20px", md: "0" },
+        })}
+      >
         <h1 class={css({ fontWeight: "bold" })}>categorias</h1>
         <ul class={css({ listStyleType: "none" })}>
           {
@@ -107,7 +114,12 @@ const { title, description, url } = Astro.props
           }
         </ul>
       </div>
-      <div class={css({ textAlign: "right" })}>
+      <div
+        class={css({
+          textAlign: { base: "center", md: "right" },
+          order: { base: "1", md: "2" },
+        })}
+      >
         <p>escrito por <a href="/sobre">Dauro Veras</a></p>
         <p>
           desenvolvido por <a
@@ -115,8 +127,13 @@ const { title, description, url } = Astro.props
             target="_blank">Fabricio C. Boppré</a
           >
         </p>
-        <p>creative commons?</p>
-        <p>RSS</p>
+        <p>
+          licença <a
+            href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.pt-br"
+            target="_blank">CC BY-NC-ND 4.0</a
+          >
+        </p>
+        <p><a href="/rss.xml">RSS</a></p>
       </div>
     </footer>
   </body>

@@ -9,7 +9,6 @@ const posts = await getCollection("blog", ({ data }) => {
   return data.offline !== true
 })
 posts.sort((a, b) => b.id.localeCompare(a.id))
-// console.log(posts)
 ---
 
 <BasicLayout
