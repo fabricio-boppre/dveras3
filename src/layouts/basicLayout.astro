@@ -54,7 +54,7 @@ const { title, description, url } = Astro.props
           bgPosition: "center",
         })}
         href="/"
-      >
+        ><h1 hidden>dveras em rede</h1>
       </a>
       <div
         id="options"
@@ -101,7 +101,7 @@ const { title, description, url } = Astro.props
           mt: { base: "20px", md: "0" },
         })}
       >
-        <h1 class={css({ fontWeight: "bold" })}>categorias</h1>
+        <h2 class={css({ fontWeight: "bold" })}>categorias</h2>
         <ul class={css({ listStyleType: "none" })}>
           {
             categorias.map((categoria) => (
