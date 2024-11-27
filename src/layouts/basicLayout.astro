@@ -1,5 +1,6 @@
 ---
 import "@styles/index.css"
+import { SEO } from "astro-seo"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/noto-sans"
@@ -22,6 +23,27 @@ const { title, description, url } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <ThemeManager defaultTheme="auto" />
     <ViewTransitions />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          url: url,
+          image: "https://v3.dauroveras.com.br/images/logo-open-graph.png",
+        },
+        optional: {
+          description: description,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+      }}
+      extend={{
+        meta: [{ name: "title", content: title }],
+      }}
+    />
   </head>
 
   <body
