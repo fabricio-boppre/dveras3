@@ -1,10 +1,9 @@
 ---
 titulo: Post com imagem
-descricao: ''
+descricao: Descrição do post.
 data_publicacao: 2024-04-04T03:00:00.000Z
 categorias:
-  - cinema
-  - miguelices-brunitezas
+  - musica
 ---
 
 ![](/images/content/Morro-das-Pedras.jpg)
