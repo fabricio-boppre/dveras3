@@ -49,6 +49,7 @@ export default defineConfig({
             type: "string",
             name: "descricao",
             label: "Descrição",
+            required: true,
           },
           {
             type: "datetime",
@@ -62,6 +63,14 @@ export default defineConfig({
             label: "Categorias",
             list: true,
             required: true,
+            ui: {
+              validate: (value, data) => {
+                const length = value?.length || 0
+                if (length == 0) {
+                  return "Ao menos uma categoria deve ser escolhida."
+                }
+              },
+            },
             options: [
               {
                 value: "literatura",
