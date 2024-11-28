@@ -1,4 +1,5 @@
 ---
+import slug from "slug"
 import BasicLayout from "@layouts/basicLayout.astro"
 import { getCollection } from "astro:content"
 import { css } from "@styled-system/css"
@@ -36,5 +37,17 @@ const { Content } = await post.render()
   <h2 class={css({ fontSize: "2xl", fontWeight: "bold" })}>
     {post.data.titulo}
   </h2>
+  <div>
+    {
+      post.data.categorias.map(function (categoria) {
+        const categoriaSlug = slug(categoria)
+        return (
+          <li>
+            <a href={`/categoria/${categoriaSlug}`}>{categoria}</a>
+          </li>
+        )
+      })
+    }
+  </div>
   <Content />
 </BasicLayout>
