@@ -34,6 +34,7 @@ export default defineConfig({
         path: "src/content/blog",
         fields: [
           {
+            // Título
             type: "string",
             name: "titulo",
             label: "Título",
@@ -41,23 +42,85 @@ export default defineConfig({
             required: true,
           },
           {
+            // Offline
             type: "boolean",
             name: "offline",
             label: "Offline",
           },
           {
+            // Descrição
             type: "string",
             name: "descricao",
             label: "Descrição",
             required: true,
           },
           {
+            // Data de publicação
             type: "datetime",
             name: "data_publicacao",
             label: "Data de publicação",
             required: true,
           },
           {
+            // Modo de exibição nos índices
+            type: "string",
+            name: "modo_exibicao_index",
+            label: "Modo de exibição nos índices",
+            list: true,
+            required: true,
+            ui: {
+              validate: (value, data) => {
+                const length = value?.length || 0
+                if (length == 0) {
+                  return "Um modo de exibição deve ser escolhido."
+                } else if (length >= 2) {
+                  return "Apenas um modo de exibição deve ser escolhido."
+                }
+              },
+            },
+            options: [
+              {
+                value: "descricao",
+                label: "Exibir apenas a descrição",
+              },
+              {
+                value: "post_completo",
+                label: "Exibir o post completo",
+              },
+              {
+                value: "imagem_ilustrativa",
+                label: "Exibir imagem ilustrativa",
+              },
+            ],
+          },
+          {
+            // Imagem ilustrativa para os índices
+            type: "image",
+            label:
+              "Imagem ilustrativa para os índices (caso esta opção tenha sido escohida acima)",
+            name: "imagem_ilustrativa",
+            ui: {
+              validate: (value, data) => {
+                const modoExibicaoIndex = data?.modo_exibicao_index
+                const imageLength = value?.length || 0
+                if (typeof modoExibicaoIndex != "undefined") {
+                  if (
+                    modoExibicaoIndex.includes("imagem_ilustrativa") &&
+                    imageLength === 0
+                  ) {
+                    return "Esta imagem deve ser cadastrada."
+                  } else if (
+                    !modoExibicaoIndex.includes("imagem_ilustrativa") &&
+                    imageLength > 0
+                  ) {
+                    return "Esta imagem não deve ser cadastrada."
+                  }
+                }
+              },
+            },
+          },
+          {
+            // Categorias
             type: "string",
             name: "categorias",
             label: "Categorias",
@@ -91,10 +154,12 @@ export default defineConfig({
             ],
           },
           {
+            // Post
             type: "rich-text",
             name: "body",
             label: "Post",
             isBody: true,
+            required: true,
           },
         ],
       },
