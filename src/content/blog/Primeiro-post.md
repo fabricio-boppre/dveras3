@@ -4,9 +4,8 @@ descricao: Descrição do post.
 data_publicacao: 2024-04-04T03:00:00.000Z
 modo_exibicao_index:
   - post_completo
-imagem_ilustrativa: ''
 categorias:
   - Cinema
 ---
 
-Olá!
+Olá! Este é o post (e ele foi configurado para exibir seu conteúdo principal, isso aqui).

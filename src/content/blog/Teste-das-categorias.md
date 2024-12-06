@@ -8,4 +8,14 @@ categorias:
   - Cinema
 ---
 
-Hey!
+Hey! Este é um post que foi configurado para exibir todo seu conteúdo no índice.
+
+## title 2
+
+um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito um texto grande e bonito.
+
+### title 3
+
+Uma imagem!
+
+![](/images/content/Morro-das-Pedras.jpg)

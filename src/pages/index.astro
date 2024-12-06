@@ -1,6 +1,9 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
+import slug from "slug"
+import { css } from "@styled-system/css"
 import { getCollection } from "astro:content"
+import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
@@ -16,13 +19,61 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
   description="Pai de dois rapazes, marido, jornalista, roteirista. Pernambucano de nascimento, filho de cearenses, potiguar e catarinense por adoção. Migrante - filho de todos os cantos e de canto nenhum."
   url={canonicalURL.href}
 >
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
-        </li>
-      ))
-    }
-  </ul>
+  {
+    posts.map(async function (post) {
+      const content = await post.render()
+      return (
+        <article
+          class={css({
+            "&:not(&:first-child)": { pt: "40px" },
+            pb: "40px",
+            "&:not(&:last-child)": { borderBottom: "1px solid gray" },
+          })}
+        >
+          <header>
+            <div
+              class={css({
+                textStyle: "graySmallLabel",
+              })}
+            >
+              {post.data.data_publicacao.toLocaleDateString("pt-BR")}
+            </div>
+            <h1
+              class={css({
+                textStyle: "h1Title",
+                color: "basicText",
+              })}
+            >
+              <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
+            </h1>
+            <div class={css({ textStyle: "graySmallLabel" })}>
+              {post.data.categorias.map(function (categoria, index) {
+                const catSlug = slug(categoria)
+                // prettier-ignore
+                //  (to avoid white-spaces in the inline element below)
+                return (
+                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${catSlug}`}>{categoria}</a></span>
+              )
+              })}
+            </div>
+          </header>
+          <div
+            class={css({
+              textStyle: "body",
+              color: "basicText",
+              mt: "20px",
+            })}
+          >
+            {post.data.modo_exibicao_index[0] == "descricao" ? (
+              <p>{post.data.descricao}</p>
+            ) : post.data.modo_exibicao_index[0] == "post_completo" ? (
+              <content.Content />
+            ) : (
+              "[Imagem ilustrativa - em desenvolvimento.]"
+            )}
+          </div>
+        </article>
+      )
+    })
+  }
 </BasicLayout>
