@@ -25,9 +25,9 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
       return (
         <article
           class={css({
-            "&:not(&:first-child)": { pt: "40px" },
-            pb: "40px",
             "&:not(&:last-child)": { borderBottom: "1px solid gray" },
+            pt: "40px",
+            pb: "40px",
           })}
         >
           <header>
