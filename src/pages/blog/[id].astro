@@ -1,7 +1,7 @@
 ---
 import slug from "slug"
 import BasicLayout from "@layouts/basicLayout.astro"
-import { getCollection } from "astro:content"
+import { getCollection, render } from "astro:content"
 import { css } from "@styled-system/css"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   // Creating and returning the static paths and props array:
   const staticPathsAndProps = posts.map((post) => {
     return {
-      params: { slug: post.slug },
+      params: { id: post.id },
       props: { post },
     }
   })
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 
 // For a specific page, we get post data and render the content in a component called `Content`:
 const { post } = Astro.props
-const { Content } = await post.render()
+const { Content } = await render(post)
 ---
 
 <BasicLayout

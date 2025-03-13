@@ -1,8 +1,10 @@
 // 1. Importing utilities from `astro:content`
 import { z, reference, defineCollection } from "astro:content"
+import { glob } from "astro/loaders"
 
 // 2. Defining our collection(s)
 const blogCollection = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
   schema: ({ image }) =>
     z.object({
       titulo: z.string(),
@@ -16,6 +18,10 @@ const blogCollection = defineCollection({
 })
 
 const categoriasCollection = defineCollection({
+  loader: glob({
+    pattern: "**/[^_]*.{md,mdx}",
+    base: "./src/content/categorias",
+  }),
   schema: z.object({
     titulo: z.string(),
   }),

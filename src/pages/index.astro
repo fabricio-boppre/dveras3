@@ -2,7 +2,7 @@
 import BasicLayout from "@layouts/basicLayout.astro"
 import slug from "slug"
 import { css } from "@styled-system/css"
-import { getCollection } from "astro:content"
+import { getCollection, render } from "astro:content"
 import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -21,7 +21,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
 >
   {
     posts.map(async function (post) {
-      const content = await post.render()
+      const content = await render(post)
       return (
         <article
           class={css({
@@ -44,7 +44,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
                 color: "basicText",
               })}
             >
-              <a href={`/blog/${post.slug}`}>{post.data.titulo}</a>
+              <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
             </h1>
             <div class={css({ textStyle: "graySmallLabel" })}>
               {post.data.categorias.map(function (categoria, index) {

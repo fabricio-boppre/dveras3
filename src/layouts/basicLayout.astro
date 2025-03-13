@@ -130,7 +130,7 @@ const { title, description, url } = Astro.props
           {
             categorias.map((categoria) => (
               <li>
-                <a href={`/categoria/${categoria.slug}`}>
+                <a href={`/categoria/${categoria.id}`}>
                   {categoria.data.titulo}
                 </a>
               </li>
