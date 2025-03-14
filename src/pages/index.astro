@@ -21,7 +21,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
 >
   {
     posts.map(async function (post) {
-      const content = await render(post)
+      const { Content } = await render(post)
       return (
         <article
           class={css({
@@ -67,7 +67,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
             {post.data.modo_exibicao_index[0] == "descricao" ? (
               <p>{post.data.descricao}</p>
             ) : post.data.modo_exibicao_index[0] == "post_completo" ? (
-              <content.Content />
+              <Content />
             ) : (
               "[Imagem ilustrativa - em desenvolvimento.]"
             )}
