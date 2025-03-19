@@ -6,7 +6,7 @@ import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/noto-sans"
 import ThemeManager from "@components/ThemeManager.astro"
 import ThemeSelect from "@components/ThemeSelect.astro"
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 import { getCollection } from "astro:content"
 
 // Get all entries from categorias collection and sort them:
@@ -22,7 +22,7 @@ const { title, description, url } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ThemeManager defaultTheme="auto" />
-    <ViewTransitions />
+    <ClientRouter />
     <SEO
       title={title}
       description={description}
