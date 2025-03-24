@@ -1,0 +1,18 @@
+[
+  {
+    "id": "cinema",
+    "titulo": "Cinema"
+  },
+  {
+    "id": "miguelices-brunitezas",
+    "titulo": "Miguelices & Brunitezas"
+  },
+  {
+    "id": "musica",
+    "titulo": "Música"
+  },
+  {
+    "id": "literatura",
+    "titulo": "Literatura"
+  }
+]

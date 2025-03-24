@@ -1,6 +1,6 @@
 // 1. Importing utilities from `astro:content` and loader(s)
 import { z, reference, defineCollection } from "astro:content"
-import { glob } from "astro/loaders"
+import { glob, file } from "astro/loaders"
 
 // 2. Defining our collections
 const blogCollection = defineCollection({
@@ -21,14 +21,13 @@ const blogCollection = defineCollection({
 })
 
 const categoriasCollection = defineCollection({
-  loader: glob({
-    pattern: "**/[^_]*.{md,mdx}",
-    base: "./src/content/categorias",
-  }),
+  loader: file("./src/content/categorias.json"),
   schema: z.object({
+    id: z.string(),
     titulo: z.string(),
   }),
 })
+
 // 3. Exporting a single `collections` object to register our collections
 //    These keys should match our collections directories names in "src/content"
 export const collections = {
