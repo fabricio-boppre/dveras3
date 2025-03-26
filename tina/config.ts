@@ -120,10 +120,11 @@ export default defineConfig({
             },
           },
           {
-            // Categorias
+            // Categorias relacionadas:
+            // - As options devem ser as mesmas de /content/categorias.json
             type: "string",
-            name: "categorias",
-            label: "Categorias",
+            name: "relatedCategorias",
+            label: "Categorias relacionadas",
             list: true,
             required: true,
             ui: {
@@ -136,19 +137,19 @@ export default defineConfig({
             },
             options: [
               {
-                value: "Literatura",
+                value: "literatura",
                 label: "Literatura",
               },
               {
-                value: "Miguelices & Brunitezas",
+                value: "miguelices-brunitezas",
                 label: "Miguelices & Brunitezas",
               },
               {
-                value: "Cinema",
+                value: "cinema",
                 label: "Cinema",
               },
               {
-                value: "Música",
+                value: "musica",
                 label: "Música",
               },
             ],

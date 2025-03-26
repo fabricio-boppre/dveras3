@@ -16,7 +16,7 @@ const blogCollection = defineCollection({
       data_publicacao: z.date(),
       modo_exibicao_index: z.array(z.string()),
       imagem_ilustrativa: z.string().optional(),
-      categorias: z.array(z.string()),
+      relatedCategorias: z.array(reference("categoriasCollection")),
     }),
 })
 
@@ -31,6 +31,6 @@ const categoriasCollection = defineCollection({
 // 3. Exporting a single `collections` object to register our collections
 //    These keys should match our collections directories names in "src/content"
 export const collections = {
-  blog: blogCollection,
-  categorias: categoriasCollection,
+  blogCollection,
+  categoriasCollection,
 }

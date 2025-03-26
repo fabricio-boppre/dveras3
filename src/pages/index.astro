@@ -1,14 +1,13 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
-import slug from "slug"
 import { css } from "@styled-system/css"
-import { getCollection, render } from "astro:content"
+import { getCollection, getEntries, render } from "astro:content"
 import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 // Get all entries from blog collection (except the offline) and sort them:
-const posts = await getCollection("blog", ({ data }) => {
+const posts = await getCollection("blogCollection", ({ data }) => {
   return data.offline !== true
 })
 posts.sort((a, b) => b.id.localeCompare(a.id))
@@ -22,6 +21,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
   {
     posts.map(async function (post) {
       const { Content } = await render(post)
+      const relatedCategories = await getEntries(post.data.relatedCategorias)
       return (
         <article
           class={css({
@@ -47,12 +47,11 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
               <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
             </h1>
             <div class={css({ textStyle: "graySmallLabel" })}>
-              {post.data.categorias.map(function (categoria, index) {
-                const catSlug = slug(categoria)
+              {relatedCategories.map(function (categoria, index) {
                 // prettier-ignore
                 //  (to avoid white-spaces in the inline element below)
                 return (
-                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${catSlug}`}>{categoria}</a></span>
+                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a></span>
               )
               })}
             </div>

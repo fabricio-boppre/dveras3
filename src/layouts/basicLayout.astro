@@ -10,7 +10,7 @@ import { ClientRouter } from "astro:transitions"
 import { getCollection } from "astro:content"
 
 // Get all entries from categorias collection and sort them:
-const categorias = await getCollection("categorias")
+const categorias = await getCollection("categoriasCollection")
 categorias.sort((a, b) => a.id.localeCompare(b.id))
 
 const { title, description, url } = Astro.props

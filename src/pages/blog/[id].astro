@@ -1,7 +1,6 @@
 ---
-import slug from "slug"
 import BasicLayout from "@layouts/basicLayout.astro"
-import { getCollection, render } from "astro:content"
+import { getCollection, getEntries, render } from "astro:content"
 import { css } from "@styled-system/css"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -10,7 +9,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
   // Get all entries from blog collection except the offline:
-  const posts = await getCollection("blog", ({ data }) => {
+  const posts = await getCollection("blogCollection", ({ data }) => {
     return data.offline !== true
   })
 
@@ -27,6 +26,8 @@ export async function getStaticPaths() {
 // For a specific page, we get post data and render the content in a component called `Content`:
 const { post } = Astro.props
 const { Content } = await render(post)
+// We also get the related categories of this post:
+const relatedCategorias = await getEntries(post.data.relatedCategorias)
 ---
 
 <BasicLayout
@@ -39,11 +40,10 @@ const { Content } = await render(post)
   </h2>
   <div>
     {
-      post.data.categorias.map(function (categoria) {
-        const categoriaSlug = slug(categoria)
+      relatedCategorias.map(function (categoria) {
         return (
           <li>
-            <a href={`/categoria/${categoriaSlug}`}>{categoria}</a>
+            <a href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a>
           </li>
         )
       })
