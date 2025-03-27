@@ -5,7 +5,7 @@ import { css } from "@styled-system/css"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// Let's get the posts static paths and data (props) to create their pages:
+// Let's call getCollection() inside of getStaticPaths() to have our collection data available for building static routes. Then, we create the individual URL paths using the id property of each content entry. Each page is passed the entire collection entry as a prop for use in your page template.
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
   // Get all entries from blog collection except the offline:
