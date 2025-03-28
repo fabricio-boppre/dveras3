@@ -24,6 +24,7 @@ export async function getStaticPaths() {
 }
 
 // For a specific page, we get post data and render the content in a component called `Content`:
+// - https://docs.astro.build/en/reference/modules/astro-content/#render
 const { post } = Astro.props
 const { Content } = await render(post)
 // We also get the related categories of this post:
