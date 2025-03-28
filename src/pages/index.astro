@@ -68,7 +68,7 @@ posts.sort((a, b) => b.id.localeCompare(a.id))
             ) : post.data.modo_exibicao_index[0] == "post_completo" ? (
               <Content />
             ) : (
-              "[Imagem ilustrativa - em desenvolvimento.]"
+              <img src={post.data.imagem_ilustrativa} alt={post.data.titulo} />
             )}
           </div>
         </article>
