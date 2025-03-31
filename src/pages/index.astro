@@ -6,11 +6,13 @@ import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// Get all entries from blog collection (except the offline) and sort them:
+// Get all entries from blog collection (except the offline) and sort them by date:
 const posts = await getCollection("blogCollection", ({ data }) => {
   return data.offline !== true
 })
-posts.sort((a, b) => b.id.localeCompare(a.id))
+posts.sort(
+  (a, b) => b.data.data_publicacao.getTime() - a.data.data_publicacao.getTime(),
+)
 ---
 
 <BasicLayout

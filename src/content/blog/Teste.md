@@ -1,7 +1,7 @@
 ---
 titulo: Teste!
 descricao: Esta é a descrição.
-data_publicacao: 2025-03-26T03:00:00.000Z
+data_publicacao: 2025-03-03T03:00:00.000Z
 modo_exibicao_index:
   - post_completo
 relatedCategorias:
