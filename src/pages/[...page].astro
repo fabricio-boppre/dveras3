@@ -1,18 +1,34 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
 import { css } from "@styled-system/css"
+import { flex } from "@styled-system/patterns"
 import { getCollection, getEntries, render } from "astro:content"
+import type { GetStaticPaths } from "astro"
 import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// Get all entries from blog collection (except the offline) and sort them by date:
-const posts = await getCollection("blogCollection", ({ data }) => {
-  return data.offline !== true
-})
-posts.sort(
-  (a, b) => b.data.data_publicacao.getTime() - a.data.data_publicacao.getTime(),
-)
+// We use getStaticPaths() to divide the post collection into separate pages:
+// - https://docs.astro.build/en/reference/routing-reference/#paginate
+export const getStaticPaths = (async ({ paginate }) => {
+  // Get all entries from blog collection (except the offline) and sort them by date:
+  const posts = (
+    await getCollection("blogCollection", ({ data }) => {
+      return data.offline !== true
+    })
+  ).sort(
+    (a, b) =>
+      b.data.data_publicacao.getTime() - a.data.data_publicacao.getTime(),
+  )
+
+  // Return a paginated collection of paths for all items
+  return paginate(posts, { pageSize: 1 })
+}) satisfies GetStaticPaths
+
+// For a specific page, we send the page prop, which contains posts data and pagination information for this page:
+// - https://docs.astro.build/en/reference/routing-reference/#@he-pagination-page-prop
+const { page } = Astro.props
+const postsPerPage = page.data
 ---
 
 <BasicLayout
@@ -21,15 +37,14 @@ posts.sort(
   url={canonicalURL.href}
 >
   {
-    posts.map(async function (post) {
+    postsPerPage.map(async function (post) {
       const { Content } = await render(post)
       const relatedCategories = await getEntries(post.data.relatedCategorias)
       return (
         <article
           class={css({
             "&:not(&:last-child)": { borderBottom: "1px solid gray" },
-            pt: "40px",
-            pb: "40px",
+            py: "40px",
           })}
         >
           <header>
@@ -76,5 +91,39 @@ posts.sort(
         </article>
       )
     })
+  }
+  {
+    page.lastPage > 1 && (
+      <nav
+        class={flex({
+          py: "40px",
+          "& a": {
+            bgColor: "buttonBg",
+            p: "10px 20px",
+            borderRadius: "lg",
+            textStyle: "headerAndFooter",
+            _hover: {
+              bg: "buttonHoverBg",
+            },
+          },
+        })}
+      >
+        <div
+          class={css({
+            w: "50%",
+          })}
+        >
+          {page.url.prev && <a href={page.url.prev}>&larr; anteriores</a>}
+        </div>
+        <div
+          class={css({
+            w: "50%",
+            textAlign: "right",
+          })}
+        >
+          {page.url.next && <a href={page.url.next}>próximos &#8594;</a>}
+        </div>
+      </nav>
+    )
   }
 </BasicLayout>

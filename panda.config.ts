@@ -57,6 +57,18 @@ export default defineConfig({
               _dark: "{colors.gray.800}",
             },
           },
+          buttonBg: {
+            value: {
+              _light: "{colors.gray.200}",
+              _dark: "{colors.gray.800}",
+            },
+          },
+          buttonHoverBg: {
+            value: {
+              _light: "{colors.gray.300}",
+              _dark: "{colors.gray.900}",
+            },
+          },
           basicText: {
             value: {
               _light: "{colors.black}",

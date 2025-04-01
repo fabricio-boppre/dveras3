@@ -7,6 +7,7 @@ modo_exibicao_index:
 imagem_ilustrativa: /images/content/IMG_5887.JPG
 relatedCategorias:
   - musica
+  - literatura
 ---
 
 Mais um post de teste.
