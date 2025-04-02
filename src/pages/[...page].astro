@@ -96,29 +96,30 @@ const postsPerPage = page.data
     page.lastPage > 1 && (
       <nav
         class={flex({
-          py: "40px",
-          "& a": {
-            bgColor: "buttonBg",
-            p: "10px 20px",
-            borderRadius: "lg",
-            textStyle: "headerAndFooter",
-            _hover: {
-              bg: "buttonHoverBg",
+          py: "30px",
+          flexDirection: ["column", "row"],
+          "& div": {
+            w: ["auto", "50%"],
+            "& a": {
+              my: "10px",
+              bgColor: "buttonBg",
+              display: "inline-block",
+              p: "10px 20px",
+              borderRadius: "lg",
+              textStyle: "headerAndFooter",
+              _hover: {
+                bg: "buttonHoverBg",
+              },
             },
           },
         })}
       >
-        <div
-          class={css({
-            w: "50%",
-          })}
-        >
+        <div class={css({ textAlign: ["center", "left"] })}>
           {page.url.prev && <a href={page.url.prev}>&larr; anteriores</a>}
         </div>
         <div
           class={css({
-            w: "50%",
-            textAlign: "right",
+            textAlign: ["center", "right"],
           })}
         >
           {page.url.next && <a href={page.url.next}>próximos &#8594;</a>}
