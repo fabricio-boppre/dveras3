@@ -22,7 +22,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   )
 
   // Return a paginated collection of paths for all items
-  return paginate(posts, { pageSize: 1 })
+  return paginate(posts, { pageSize: 15 })
 }) satisfies GetStaticPaths
 
 // For a specific page, we send the page prop, which contains posts data and pagination information for this page:
