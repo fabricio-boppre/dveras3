@@ -6,7 +6,7 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "Noto Sans Variable, sans-serif",
       fontWeight: "400",
-      fontSize: ["18px"],
+      fontSize: ["16px", "17px"],
     },
   },
   graySmallLabel: {
@@ -23,7 +23,7 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "Roboto Serif Variable, serif",
       fontWeight: "700",
-      fontSize: ["30px"],
+      fontSize: ["24px", "30px"],
     },
   },
   body: {
@@ -31,14 +31,14 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "Noto Sans Variable, sans-serif",
       fontWeight: "400",
-      fontSize: ["20px"],
+      fontSize: ["16px", "20px"],
       "& h2": {
-        fontSize: ["26px"],
+        fontSize: ["24px", "26px"],
         fontWeight: "600",
         mb: "20px",
       },
       "& h3": {
-        fontSize: ["24px"],
+        fontSize: ["22px", "24px"],
         fontWeight: "500",
         mb: "20px",
       },
