@@ -58,6 +58,21 @@ const { title, description, url } = Astro.props
       h: "100%",
     })}
   >
+    <noscript>
+      <div
+        class={css({
+          p: "40px",
+          textAlign: "center",
+          bgColor: "red.500",
+          color: "white",
+          textStyle: "body",
+        })}
+      >
+        Para navegar neste site é necessário que você ative a funcionalidade
+        JavaScript!
+      </div>
+    </noscript>
+
     <header
       class={flex({
         flex: "none",
