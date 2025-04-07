@@ -1,4 +1,4 @@
-import { defineConfig } from "tinacms"
+import { defineConfig, ImageField } from "tinacms"
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -120,20 +120,24 @@ export default defineConfig({
               "Imagem ilustrativa para os índices (caso esta opção tenha sido escolhida acima)",
             name: "imagem_ilustrativa",
             ui: {
+              // Só exibe se modo_exibicao_index for imagem_ilustrativa
+              component: (props) => {
+                const { form } = props
+                return form.getFieldState("modo_exibicao_index")?.value ==
+                  "imagem_ilustrativa"
+                  ? ImageField(props)
+                  : null
+              },
+              // Se modo_exibicao_index for imagem_ilustrativa, então é obrigado cadastrar uma imagem
               validate: (value, data) => {
-                const modoExibicaoIndex = data?.modo_exibicao_index
+                const modoExibicao = data?.modo_exibicao_index
                 const imageLength = value?.length || 0
-                if (typeof modoExibicaoIndex != "undefined") {
+                if (typeof modoExibicao != "undefined") {
                   if (
-                    modoExibicaoIndex.includes("imagem_ilustrativa") &&
+                    modoExibicao === "imagem_ilustrativa" &&
                     imageLength === 0
                   ) {
                     return "Esta imagem deve ser cadastrada."
-                  } else if (
-                    !modoExibicaoIndex.includes("imagem_ilustrativa") &&
-                    imageLength > 0
-                  ) {
-                    return "Esta imagem não deve ser cadastrada."
                   }
                 }
               },
