@@ -29,6 +29,24 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        ui: {
+          // Adding a lastUpdated on beforeSubmit:
+          beforeSubmit: async ({
+            form,
+            cms,
+            values,
+          }: {
+            form: Form
+            cms: TinaCMS
+            values: Record<string, any>
+          }) => {
+            return {
+              ...values,
+              lastUpdated: new Date().toISOString(),
+            }
+          },
+          //...
+        },
         name: "blog",
         label: "Blog posts",
         path: "src/content/blog",
@@ -60,6 +78,15 @@ export default defineConfig({
             name: "data_publicacao",
             label: "Data de publicação",
             required: true,
+          },
+          {
+            // Data da última alteração (campo escondido pois o Tina preenche automaticamente)
+            type: "datetime",
+            name: "lastUpdated",
+            label: "Data da última alteração",
+            ui: {
+              component: "hidden",
+            },
           },
           {
             // Modo de exibição nos índices
@@ -97,7 +124,7 @@ export default defineConfig({
             // Imagem ilustrativa para os índices
             type: "image",
             label:
-              "Imagem ilustrativa para os índices (caso esta opção tenha sido escohida acima)",
+              "Imagem ilustrativa para os índices (caso esta opção tenha sido escolhida acima)",
             name: "imagem_ilustrativa",
             ui: {
               validate: (value, data) => {
