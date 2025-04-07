@@ -93,17 +93,10 @@ export default defineConfig({
             type: "string",
             name: "modo_exibicao_index",
             label: "Modo de exibição nos índices",
-            list: true,
             required: true,
             ui: {
-              validate: (value, data) => {
-                const length = value?.length || 0
-                if (length == 0) {
-                  return "Um modo de exibição deve ser escolhido."
-                } else if (length >= 2) {
-                  return "Apenas um modo de exibição deve ser escolhido."
-                }
-              },
+              component: "radio-group",
+              direction: "vertical",
             },
             options: [
               {

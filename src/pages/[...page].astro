@@ -80,9 +80,9 @@ const postsPerPage = page.data
               mt: "20px",
             })}
           >
-            {post.data.modo_exibicao_index[0] == "descricao" ? (
+            {post.data.modo_exibicao_index == "descricao" ? (
               <p>{post.data.descricao}</p>
-            ) : post.data.modo_exibicao_index[0] == "post_completo" ? (
+            ) : post.data.modo_exibicao_index == "post_completo" ? (
               <Content />
             ) : (
               <img src={post.data.imagem_ilustrativa} alt={post.data.titulo} />
