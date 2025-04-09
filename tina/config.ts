@@ -70,6 +70,8 @@ export default defineConfig({
             type: "string",
             name: "descricao",
             label: "Descrição",
+            description:
+              "Mesmo que este texto não seja exibido no blog, a descrição de um post é obrigatória pois ela é utilizada na indexação do site em serviços de pesquisa, feeds RSS, redes sociais, etc.",
             required: true,
           },
           {
@@ -93,6 +95,8 @@ export default defineConfig({
             type: "string",
             name: "modo_exibicao_index",
             label: "Modo de exibição nos índices",
+            description:
+              "Escolha como você pretende que este post seja exibido no índice da tela inicial do blog e em outros índices.",
             required: true,
             ui: {
               component: "radio-group",
@@ -116,8 +120,7 @@ export default defineConfig({
           {
             // Imagem ilustrativa para os índices
             type: "image",
-            label:
-              "Imagem ilustrativa para os índices (caso esta opção tenha sido escolhida acima)",
+            label: "Imagem ilustrativa para os índices",
             name: "imagem_ilustrativa",
             ui: {
               // Só exibe se modo_exibicao_index for imagem_ilustrativa
