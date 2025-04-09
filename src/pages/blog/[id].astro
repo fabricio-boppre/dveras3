@@ -2,6 +2,7 @@
 import BasicLayout from "@layouts/basicLayout.astro"
 import { getCollection, getEntries, render } from "astro:content"
 import { css } from "@styled-system/css"
+import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
@@ -32,23 +33,52 @@ const relatedCategorias = await getEntries(post.data.relatedCategorias)
 ---
 
 <BasicLayout
-  title="dveras em rede"
-  description="descrição do post."
+  title={"dveras em rede | " + post.data.titulo}
+  description={post.data.descricao}
   url={canonicalURL.href}
 >
-  <h2 class={css({ fontSize: "2xl", fontWeight: "bold" })}>
-    {post.data.titulo}
-  </h2>
-  <div>
-    {
-      relatedCategorias.map(function (categoria) {
-        return (
-          <li>
-            <a href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a>
-          </li>
-        )
-      })
-    }
-  </div>
-  <Content />
+  <article
+    class={css({
+      "&:not(&:last-child)": { borderBottom: "1px solid gray" },
+      py: "40px",
+    })}
+  >
+    <header>
+      <div
+        class={css({
+          textStyle: "graySmallLabel",
+        })}
+      >
+        {post.data.data_publicacao.toLocaleDateString("pt-BR")}
+      </div>
+      <h1
+        class={css({
+          textStyle: "h1Title",
+          color: "basicText",
+        })}
+      >
+        <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
+      </h1>
+      <div class={css({ textStyle: "graySmallLabel" })}>
+        {
+          relatedCategorias.map(function (categoria, index) {
+            // prettier-ignore
+            //  (to avoid white-spaces in the inline element below)
+            return (
+                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a></span>
+              )
+          })
+        }
+      </div>
+    </header>
+    <div
+      class={css({
+        textStyle: "article",
+        color: "basicText",
+        mt: "20px",
+      })}
+    >
+      <Content />
+    </div>
+  </article>
 </BasicLayout>
