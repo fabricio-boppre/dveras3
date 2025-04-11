@@ -2,11 +2,10 @@
 titulo: Teste com imagem no índice
 descricao: Teste com imagem no índice.
 data_publicacao: 2025-04-07T03:00:00.000Z
-lastUpdated: 2025-04-09T18:55:25.920Z
+lastUpdated: 2025-04-10T21:24:24.299Z
 modo_exibicao_index: imagem_ilustrativa
 imagem_ilustrativa: /images/content/IMG_5887.JPG
 relatedCategorias:
-  - literatura
   - miguelices-brunitezas
 ---
 

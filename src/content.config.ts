@@ -24,7 +24,6 @@ const blogCollection = defineCollection({
 const categoriasCollection = defineCollection({
   loader: file("./src/content/categorias.json"),
   schema: z.object({
-    id: z.string(),
     titulo: z.string(),
   }),
 })
