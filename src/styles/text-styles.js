@@ -26,6 +26,14 @@ export const textStyles = defineTextStyles({
       fontSize: ["24px", "30px"],
     },
   },
+  h2Title: {
+    description: "h2 title style.",
+    value: {
+      fontFamily: "Roboto Serif Variable, serif",
+      fontWeight: "600",
+      fontSize: ["20px", "24px"],
+    },
+  },
   article: {
     description: "Body text style.",
     value: {
@@ -33,13 +41,13 @@ export const textStyles = defineTextStyles({
       fontWeight: "400",
       fontSize: ["17px", "20px"],
       "& h2": {
-        fontSize: ["24px", "26px"],
+        fontSize: ["20px", "24px"],
         fontWeight: "600",
         mb: "20px",
       },
       "& h3": {
-        fontSize: ["22px", "24px"],
-        fontWeight: "500",
+        fontSize: ["18px", "22px"],
+        fontWeight: "600",
         mb: "20px",
       },
       "& p, ul": { "&:not(&:last-child)": { mb: "20px" } },
