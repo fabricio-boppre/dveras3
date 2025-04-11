@@ -50,8 +50,8 @@ const estaCategoria = await getEntry("categoriasCollection", Astro.params.id)
 ---
 
 <BasicLayout
-  title="dveras em rede"
-  description="descrição"
+  title={"dveras em rede | " + estaCategoria?.data.titulo}
+  description={'Posts da categoria "' + estaCategoria?.data.titulo + '"'}
   url={canonicalURL.href}
 >
   <h1
