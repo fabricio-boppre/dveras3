@@ -1,4 +1,12 @@
 import { defineConfig, ImageField } from "tinacms"
+import categoriasJson from "../src/content/categorias.json"
+
+const categorias = categoriasJson.map((categoria) => ({
+  label: categoria.titulo,
+  value: categoria.id,
+}))
+
+console.log(categorias)
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -162,24 +170,7 @@ export default defineConfig({
                 }
               },
             },
-            options: [
-              {
-                value: "literatura",
-                label: "Literatura",
-              },
-              {
-                value: "miguelices-brunitezas",
-                label: "Miguelices & Brunitezas",
-              },
-              {
-                value: "cinema",
-                label: "Cinema",
-              },
-              {
-                value: "musica",
-                label: "Música",
-              },
-            ],
+            options: categorias,
           },
           {
             // Post

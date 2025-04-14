@@ -2,11 +2,12 @@
 titulo: Teste com imagem no índice
 descricao: Teste com imagem no índice.
 data_publicacao: 2025-04-07T03:00:00.000Z
-lastUpdated: 2025-04-10T21:24:24.299Z
+lastUpdated: 2025-04-14T16:34:04.147Z
 modo_exibicao_index: imagem_ilustrativa
 imagem_ilustrativa: /images/content/IMG_5887.JPG
 relatedCategorias:
   - miguelices-brunitezas
+  - cinema
 ---
 
 Aqui vamos testar um post bem elaborado, cheio de **Markdown**. Teste de link: [David Yow’s Favourite Records](https://thequietus.com/interviews/bakers-dozen/music-horrible-david-yows-favourite-records/). Agora vamos ver uma lista:
