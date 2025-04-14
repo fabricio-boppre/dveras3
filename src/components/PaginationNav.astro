@@ -1,0 +1,43 @@
+---
+import { css } from "@styled-system/css"
+import { flex } from "@styled-system/patterns"
+import "@fontsource-variable/roboto-serif"
+
+const { page } = Astro.props
+---
+
+{
+  page.lastPage > 1 && (
+    <nav
+      class={flex({
+        py: "30px",
+        flexDirection: ["column", "row"],
+        "& div": {
+          w: ["auto", "50%"],
+          "& a": {
+            my: "10px",
+            bgColor: "buttonBg",
+            display: "inline-block",
+            p: "10px 20px",
+            borderRadius: "lg",
+            textStyle: "headerAndFooter",
+            _hover: {
+              bg: "buttonHoverBg",
+            },
+          },
+        },
+      })}
+    >
+      <div class={css({ textAlign: ["center", "left"] })}>
+        {page.url.prev && <a href={page.url.prev}>&larr; anteriores</a>}
+      </div>
+      <div
+        class={css({
+          textAlign: ["center", "right"],
+        })}
+      >
+        {page.url.next && <a href={page.url.next}>próximos &#8594;</a>}
+      </div>
+    </nav>
+  )
+}

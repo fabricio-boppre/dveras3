@@ -1,5 +1,6 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
+import PaginationNav from "@components/PaginationNav.astro"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
 import { getCollection, getEntries, render } from "astro:content"
@@ -92,39 +93,5 @@ const postsPerPage = page.data
       )
     })
   }
-  {
-    page.lastPage > 1 && (
-      <nav
-        class={flex({
-          py: "30px",
-          flexDirection: ["column", "row"],
-          "& div": {
-            w: ["auto", "50%"],
-            "& a": {
-              my: "10px",
-              bgColor: "buttonBg",
-              display: "inline-block",
-              p: "10px 20px",
-              borderRadius: "lg",
-              textStyle: "headerAndFooter",
-              _hover: {
-                bg: "buttonHoverBg",
-              },
-            },
-          },
-        })}
-      >
-        <div class={css({ textAlign: ["center", "left"] })}>
-          {page.url.prev && <a href={page.url.prev}>&larr; anteriores</a>}
-        </div>
-        <div
-          class={css({
-            textAlign: ["center", "right"],
-          })}
-        >
-          {page.url.next && <a href={page.url.next}>próximos &#8594;</a>}
-        </div>
-      </nav>
-    )
-  }
+  <PaginationNav page={page} />
 </BasicLayout>
