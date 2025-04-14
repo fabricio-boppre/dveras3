@@ -1,12 +1,11 @@
 import { defineConfig, ImageField } from "tinacms"
 import categoriasJson from "../src/content/categorias.json"
 
+// Let's get the categories from the Astro content colllection:
 const categorias = categoriasJson.map((categoria) => ({
   label: categoria.titulo,
   value: categoria.id,
 }))
-
-console.log(categorias)
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -155,8 +154,7 @@ export default defineConfig({
             },
           },
           {
-            // Categorias relacionadas:
-            // - As options devem ser as mesmas de /content/categorias.json
+            // Categorias relacionadas
             type: "string",
             name: "relatedCategorias",
             label: "Categorias relacionadas",

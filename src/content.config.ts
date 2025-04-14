@@ -20,7 +20,6 @@ const blogCollection = defineCollection({
       relatedCategorias: z.array(reference("categoriasCollection")),
     }),
 })
-
 const categoriasCollection = defineCollection({
   loader: file("./src/content/categorias.json"),
   schema: z.object({
