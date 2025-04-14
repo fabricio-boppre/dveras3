@@ -7,7 +7,7 @@ import "@fontsource-variable/roboto-serif"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// We use getStaticPaths() to divide the post collection for each category:
+// We use getStaticPaths() to divide the post collection for each category and paginate them:
 // - https://docs.astro.build/en/reference/routing-reference/#paginate
 export const getStaticPaths = async ({ paginate }) => {
   // Get all entries from blog collection (except the offline) and sort them by date:
@@ -23,12 +23,8 @@ export const getStaticPaths = async ({ paginate }) => {
   const categorias = await getCollection("categoriasCollection")
   const simplerCategories = categorias.map((categoria) => categoria.id)
 
-  // Now let's prepare the props:
+  // Now let's prepare the props: for each category, we insert into filteredPosts just the posts that include it:
   return simplerCategories.flatMap((categoria) => {
-    // To get the posts filtered by categories, the simpler code below should work, but it's not. It's some Astro bug. That's why I'm using the more complex code with a `for` loop.
-    // const filteredPosts = posts.filter((post) =>
-    // post.data.relatedCategorias.includes(categoria),
-    // )
     var filteredPosts = new Array()
     posts.map((post) => {
       for (var i = 0; i < post.data.relatedCategorias.length; i++) {
@@ -38,12 +34,15 @@ export const getStaticPaths = async ({ paginate }) => {
         }
       }
     })
+    // Return paginated collections segmented by category:
     return paginate(filteredPosts, {
       params: { id: categoria },
       pageSize: 15,
     })
   })
 }
+// For a specific page, we send the page prop, which contains posts data and pagination information for this page, and we also send the current category information:
+// - https://docs.astro.build/en/reference/routing-reference/#@he-pagination-page-prop
 const { page } = Astro.props
 const postsPerPage = page.data
 const estaCategoria = await getEntry("categoriasCollection", Astro.params.id)
