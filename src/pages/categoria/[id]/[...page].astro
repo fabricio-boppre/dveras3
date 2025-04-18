@@ -1,8 +1,8 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
 import PaginationNav from "@components/PaginationNav.astro"
+import config from "@config/config.json"
 import { css } from "@styled-system/css"
-import { flex } from "@styled-system/patterns"
 import { getCollection, getEntries, getEntry, render } from "astro:content"
 import "@fontsource-variable/roboto-serif"
 
@@ -38,7 +38,7 @@ export const getStaticPaths = async ({ paginate }) => {
     // Return paginated collections segmented by category:
     return paginate(filteredPosts, {
       params: { id: categoria },
-      pageSize: 15,
+      pageSize: config.pagination,
     })
   })
 }

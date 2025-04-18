@@ -1,8 +1,8 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
 import PaginationNav from "@components/PaginationNav.astro"
+import config from "@config/config.json"
 import { css } from "@styled-system/css"
-import { flex } from "@styled-system/patterns"
 import { getCollection, getEntries, render } from "astro:content"
 import type { GetStaticPaths } from "astro"
 import "@fontsource-variable/roboto-serif"
@@ -23,7 +23,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   )
 
   // Return a paginated collection of paths for all items
-  return paginate(posts, { pageSize: 15 })
+  return paginate(posts, { pageSize: config.pagination })
 }) satisfies GetStaticPaths
 
 // For a specific page, we send the page prop, which contains posts data and pagination information for this page:
