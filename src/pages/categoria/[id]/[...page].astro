@@ -6,8 +6,6 @@ import { css } from "@styled-system/css"
 import { getCollection, getEntries, getEntry, render } from "astro:content"
 import "@fontsource-variable/roboto-serif"
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
 // We use getStaticPaths() to divide the post collection for each category and paginate them:
 // - https://docs.astro.build/en/reference/routing-reference/#paginate
 export const getStaticPaths = async ({ paginate }) => {
@@ -42,15 +40,17 @@ export const getStaticPaths = async ({ paginate }) => {
     })
   })
 }
-// For a specific page, we send the page prop, which contains posts data and pagination information for this page, and we also send the current category information:
+// For a specific page, we send meta info, the page prop, which contains posts data and pagination information for this page, and we also send the current category information:
 // - https://docs.astro.build/en/reference/routing-reference/#@he-pagination-page-prop
 const { page } = Astro.props
 const postsPerPage = page.data
 const estaCategoria = await getEntry("categoriasCollection", Astro.params.id)
+const siteTitle = config.siteTitle
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <BasicLayout
-  title={"dveras em rede | " + estaCategoria?.data.titulo}
+  title={siteTitle + " | " + estaCategoria?.data.titulo}
   description={'Posts da categoria "' + estaCategoria?.data.titulo + '"'}
   url={canonicalURL.href}
 >

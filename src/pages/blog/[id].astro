@@ -1,10 +1,9 @@
 ---
 import BasicLayout from "@layouts/basicLayout.astro"
+import config from "@config/config.json"
 import { getCollection, getEntries, render } from "astro:content"
 import { css } from "@styled-system/css"
 import "@fontsource-variable/roboto-serif"
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 // Let's call getCollection() inside of getStaticPaths() to have our collection data available for building static routes. Then, we create the individual URL paths using the id property of each content entry. Each page is passed the entire collection entry as a prop for use in your page template.
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
@@ -24,16 +23,17 @@ export async function getStaticPaths() {
   return staticPathsAndProps
 }
 
-// For a specific page, we get post data and render the content in a component called `Content`:
+// For a specific page, we get meta info, related categories of this post, post data and render the content in a component called `Content`:
 // - https://docs.astro.build/en/reference/modules/astro-content/#render
 const { post } = Astro.props
 const { Content } = await render(post)
-// We also get the related categories of this post:
+const siteTitle = config.siteTitle
 const relatedCategorias = await getEntries(post.data.relatedCategorias)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <BasicLayout
-  title={"dveras em rede | " + post.data.titulo}
+  title={siteTitle + " | " + post.data.titulo}
   description={post.data.descricao}
   url={canonicalURL.href}
 >

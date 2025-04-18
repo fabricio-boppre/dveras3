@@ -7,8 +7,6 @@ import { getCollection, getEntries, render } from "astro:content"
 import type { GetStaticPaths } from "astro"
 import "@fontsource-variable/roboto-serif"
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
 // We use getStaticPaths() to divide the post collection into separate pages:
 // - https://docs.astro.build/en/reference/routing-reference/#paginate
 export const getStaticPaths = (async ({ paginate }) => {
@@ -26,14 +24,16 @@ export const getStaticPaths = (async ({ paginate }) => {
   return paginate(posts, { pageSize: config.pagination })
 }) satisfies GetStaticPaths
 
-// For a specific page, we send the page prop, which contains posts data and pagination information for this page:
+// For a specific page, we send meta info, the page prop, which contains posts data and pagination information for this page:
 // - https://docs.astro.build/en/reference/routing-reference/#@he-pagination-page-prop
 const { page } = Astro.props
 const postsPerPage = page.data
+const siteTitle = config.siteTitle
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <BasicLayout
-  title="dveras em rede"
+  title={siteTitle}
   description="Jornalista, ciclista, antifascista. Colaboro com o Valor Econômico e o Grupo Report. Recifense em Floripa."
   url={canonicalURL.href}
 >
