@@ -51,6 +51,7 @@ export const textStyles = defineTextStyles({
         mb: "20px",
       },
       "& p, ul": { "&:not(&:last-child)": { mb: "20px" } },
+      "& ul": { li: { listStyle: "inside" } },
       "& img + em": { fontSize: "16px" },
       "& a": { textDecoration: "underline" },
     },
