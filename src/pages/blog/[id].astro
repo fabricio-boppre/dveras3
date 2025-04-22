@@ -3,7 +3,9 @@ import BasicLayout from "@layouts/basicLayout.astro"
 import config from "@config/config.json"
 import { getCollection, getEntries, render } from "astro:content"
 import { css } from "@styled-system/css"
+import { flex } from "@styled-system/patterns"
 import "@fontsource-variable/roboto-serif"
+import { SocialShare, BlueskyShareButton } from "astro-social-share"
 
 // Let's call getCollection() inside of getStaticPaths() to have our collection data available for building static routes. Then, we create the individual URL paths using the id property of each content entry. Each page is passed the entire collection entry as a prop for use in your page template.
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
@@ -30,6 +32,7 @@ const { Content } = await render(post)
 const siteTitle = config.siteTitle
 const relatedCategorias = await getEntries(post.data.relatedCategorias)
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const shareButtons = [BlueskyShareButton]
 ---
 
 <BasicLayout
@@ -39,8 +42,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 >
   <article
     class={css({
-      "&:not(&:last-child)": { borderBottom: "1px solid gray" },
-      py: "40px",
+      pt: "40px",
     })}
   >
     <header>
@@ -81,4 +83,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       <Content />
     </div>
   </article>
+  <div class={flex({ my: "40px", gap: "10px" })}>
+    <span
+      class={css({
+        textStyle: "graySmallLabel",
+      })}>compartilhe:</span
+    >
+    <SocialShare
+      buttons={shareButtons}
+      description={post.data.descricao}
+      title={post.data.titulo}
+    />
+  </div>
 </BasicLayout>
+
+<slot name="astro-social-share-css">
+  <style is:global>
+    .astro-social-share {
+      margin: 0;
+    }
+    .astro-social-share svg {
+      fill: var(--colors-basic-text);
+    }
+  </style>
+</slot>
