@@ -59,7 +59,7 @@ const shareButtons = [BlueskyShareButton]
           color: "basicText",
         })}
       >
-        <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
+        {post.data.titulo}
       </h1>
       <div class={css({ textStyle: "graySmallLabel" })}>
         {
