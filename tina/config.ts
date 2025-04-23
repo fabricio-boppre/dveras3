@@ -35,6 +35,7 @@ export default defineConfig({
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
+      // Blog:
       {
         ui: {
           // Adding a lastUpdated on beforeSubmit:
@@ -52,7 +53,6 @@ export default defineConfig({
               lastUpdated: new Date().toISOString(),
             }
           },
-          //...
         },
         name: "blog",
         label: "Blog posts",
@@ -175,6 +175,28 @@ export default defineConfig({
             type: "rich-text",
             name: "body",
             label: "Post",
+            isBody: true,
+            required: true,
+          },
+        ],
+      },
+      // Sobre:
+      {
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        name: "sobre",
+        label: "Sobre",
+        path: "src/content/sobre",
+        fields: [
+          {
+            // Post
+            type: "rich-text",
+            name: "body",
+            label: "Texto",
             isBody: true,
             required: true,
           },

@@ -29,12 +29,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props
 const postsPerPage = page.data
 const siteTitle = config.siteTitle
+const siteDescription = config.siteDescription
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <BasicLayout
   title={siteTitle}
-  description="Jornalista, ciclista, antifascista. Colaboro com o Valor Econômico e o Grupo Report. Recifense em Floripa."
+  description={siteDescription}
   url={canonicalURL.href}
 >
   {

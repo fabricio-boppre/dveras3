@@ -1,0 +1,45 @@
+---
+import BasicLayout from "@layouts/basicLayout.astro"
+import config from "@config/config.json"
+import { css } from "@styled-system/css"
+import "@fontsource-variable/roboto-serif"
+import { Content as Sobre } from "../content/sobre/sobre.md"
+
+// For a specific page, we send meta info, the page prop, which contains posts data and pagination information for this page:
+// - https://docs.astro.build/en/reference/routing-reference/#@he-pagination-page-prop
+const siteTitle = config.siteTitle
+const siteDescription = config.siteDescription
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<BasicLayout
+  title={siteTitle + " | Sobre"}
+  description={siteDescription}
+  url={canonicalURL.href}
+>
+  <article
+    class={css({
+      pt: "40px",
+    })}
+  >
+    <header>
+      <h1
+        class={css({
+          textStyle: "h1Title",
+          color: "basicText",
+        })}
+      >
+        Sobre
+      </h1>
+    </header>
+    <div
+      class={css({
+        textStyle: "article",
+        color: "basicText",
+        mt: "20px",
+      })}
+    >
+      <Sobre />
+    </div>
+  </article>
+</BasicLayout>
