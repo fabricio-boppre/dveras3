@@ -16,6 +16,7 @@
     "@fontsource-variable/noto-sans": "^5.2.6",
     "@fontsource-variable/roboto-serif": "^5.2.5",
     "astro": "^5.7.7",
+    "astro-ai-robots-txt": "^0.1.2",
     "astro-meta-tags": "^0.3.1",
     "astro-page-insight": "^0.10.2",
     "astro-seo": "^0.8.4",
