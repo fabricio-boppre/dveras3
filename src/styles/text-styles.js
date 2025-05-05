@@ -57,7 +57,7 @@ export const textStyles = defineTextStyles({
       "& blockquote": {
         fontStyle: "italic",
         position: "relative",
-        bgColor: "footerBg",
+        bgColor: "quoteBg",
         p: ["20px 20px 20px 45px", "20px 20px 20px 60px"],
         "&::before": {
           fontFamily: "serif",
