@@ -103,7 +103,6 @@ export default defineConfig({
               '">' +
               offlinePostsURL +
               "</a>. Feita a revisão de um post, basta desmarcar esta opção para que ele se torne público.",
-            required: true,
           },
           {
             // Descrição

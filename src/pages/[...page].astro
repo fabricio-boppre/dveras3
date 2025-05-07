@@ -12,7 +12,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   // Get all entries from blog collection (except the offline) and sort them by date:
   const posts = (
     await getCollection("blogCollection", ({ data }) => {
-      return data.offline === false
+      return data.offline !== true
     })
   ).sort(
     (a, b) =>
