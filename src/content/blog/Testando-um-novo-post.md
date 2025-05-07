@@ -1,9 +1,9 @@
 ---
 titulo: Testando um novo post.
-offline: true
+offline: false
 descricao: Lorem ipson.
 data_publicacao: 2025-04-23T03:00:00.000Z
-lastUpdated: 2025-05-07T16:31:16.855Z
+lastUpdated: 2025-05-07T16:46:51.889Z
 modo_exibicao_index: descricao
 relatedCategorias:
   - literatura
