@@ -10,10 +10,8 @@ import { SocialShare, BlueskyShareButton } from "astro-social-share"
 // Let's call getCollection() inside of getStaticPaths() to have our collection data available for building static routes. Then, we create the individual URL paths using the id property of each content entry. Each page is passed the entire collection entry as a prop for use in your page template.
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-  // Get all entries from blog collection except the offline:
-  const posts = await getCollection("blogCollection", ({ data }) => {
-    return data.offline !== true
-  })
+  // Get all entries from blog collection:
+  const posts = await getCollection("blogCollection")
 
   // Creating and returning the static paths and props array:
   const staticPathsAndProps = posts.map((post) => {
@@ -56,11 +54,20 @@ const shareButtons = [BlueskyShareButton]
       <h1
         class={css({
           textStyle: "h1Title",
-          color: "basicText",
+          color: post.data.offline ? "gray.400" : "basicText",
         })}
       >
         {post.data.titulo}
       </h1>
+      <div
+        class={css({
+          textStyle: "graySmallLabel",
+          mb: "5px",
+        })}
+      >
+        {post.data.offline ? "(Este post está offline.)" : ""}
+      </div>
+
       <div class={css({ textStyle: "graySmallLabel" })}>
         {
           relatedCategorias.map(function (categoria, index) {

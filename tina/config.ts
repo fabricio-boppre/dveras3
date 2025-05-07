@@ -1,5 +1,6 @@
 import { defineConfig, ImageField } from "tinacms"
 import categoriasJson from "../src/content/categorias.json"
+import { offlinePostsURL } from "../src/config/config.json"
 
 // Let's get the categories from the Astro content colllection:
 const categorias = categoriasJson.map((categoria) => ({
@@ -71,6 +72,13 @@ export default defineConfig({
             type: "boolean",
             name: "offline",
             label: "Offline",
+            description:
+              'Posts marcados como offline não irão aparecer nos índices públicos. Utilize esta opção para revisar um post antes de torná-lo público. Acesse os posts offline através da URL <a href="' +
+              offlinePostsURL +
+              '">' +
+              offlinePostsURL +
+              "</a>. Feita a revisão de um post, basta desmarcar esta opção para que ele se torne público.",
+            required: true,
           },
           {
             // Descrição

@@ -1,0 +1,72 @@
+---
+import { css } from "@styled-system/css"
+import { getEntries, render } from "astro:content"
+import "@fontsource-variable/roboto-serif"
+
+const { posts } = Astro.props
+---
+
+{
+  posts.map(async function (post) {
+    const { Content } = await render(post)
+    const relatedCategories = await getEntries(post.data.relatedCategorias)
+    return (
+      <article
+        class={css({
+          "&:not(&:last-child)": { borderBottom: "1px solid gray" },
+          py: "40px",
+        })}
+      >
+        <header>
+          <div
+            class={css({
+              textStyle: "graySmallLabel",
+            })}
+          >
+            {post.data.data_publicacao.toLocaleDateString("pt-BR")}
+          </div>
+          <h1
+            class={css({
+              textStyle: "h1Title",
+              color: post.data.offline ? "gray.400" : "basicText",
+            })}
+          >
+            <a href={`/blog/${post.id}`}>{post.data.titulo}</a>
+          </h1>
+          <div
+            class={css({
+              textStyle: "graySmallLabel",
+              mb: "5px",
+            })}
+          >
+            {post.data.offline ? "(Este post está offline.)" : ""}
+          </div>
+          <div class={css({ textStyle: "graySmallLabel" })}>
+            {relatedCategories.map(function (categoria, index) {
+              // prettier-ignore
+              //  (to avoid white-spaces in the inline element below)
+              return (
+                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a></span>
+              )
+            })}
+          </div>
+        </header>
+        <div
+          class={css({
+            textStyle: "article",
+            color: "basicText",
+            mt: "20px",
+          })}
+        >
+          {post.data.modo_exibicao_index == "descricao" ? (
+            <p>{post.data.descricao}</p>
+          ) : post.data.modo_exibicao_index == "post_completo" ? (
+            <Content />
+          ) : (
+            <img src={post.data.imagem_ilustrativa} alt={post.data.titulo} />
+          )}
+        </div>
+      </article>
+    )
+  })
+}

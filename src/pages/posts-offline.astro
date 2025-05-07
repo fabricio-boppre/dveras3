@@ -1,0 +1,43 @@
+---
+import { css } from "@styled-system/css"
+import BasicLayout from "@layouts/basicLayout.astro"
+import PostsIndex from "@components/PostsIndex.astro"
+import config from "@config/config.json"
+import { getCollection } from "astro:content"
+
+// Get all offline posts and sorte thm:
+const offlinePosts = (
+  await getCollection("blogCollection", ({ data }) => {
+    return data.offline === true
+  })
+).sort(
+  (a, b) => b.data.data_publicacao.getTime() - a.data.data_publicacao.getTime(),
+)
+
+// Sending meta info and posts data:
+const siteTitle = config.siteTitle
+const siteDescription = config.siteDescription
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<BasicLayout
+  title={siteTitle}
+  description={siteDescription}
+  url={canonicalURL.href}
+>
+  {
+    offlinePosts.length > 0 ? (
+      <PostsIndex posts={offlinePosts} />
+    ) : (
+      <div
+        class={css({
+          py: "40px",
+          textStyle: "article",
+          color: "basicText",
+        })}
+      >
+        Não há nenhum post offline neste momento.
+      </div>
+    )
+  }
+</BasicLayout>
