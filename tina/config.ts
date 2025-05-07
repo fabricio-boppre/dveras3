@@ -54,6 +54,31 @@ export default defineConfig({
               lastUpdated: new Date().toISOString(),
             }
           },
+          // ..
+          filename: {
+            // if disabled, the editor can not edit the filename
+            readonly: true,
+            slugify: (values) => {
+              // Values is an object containing all the values of the form
+              return `${values?.titulo
+                ?.toLowerCase()
+                .replace(/ /g, "-")
+                .replace(/ç/g, "c")
+                .replace(/ü/g, "u")
+                .replace(/à/g, "a")
+                .replace(/ã/g, "a")
+                .replace(/õ/g, "o")
+                .replace(/á/g, "a")
+                .replace(/é/g, "e")
+                .replace(/í/g, "i")
+                .replace(/ó/g, "o")
+                .replace(/ú/g, "u")
+                .replace(/â/g, "a")
+                .replace(/ê/g, "e")
+                .replace(/ô/g, "o")
+                .replace(/[^a-z0-9 -]/g, "")}`
+            },
+          },
         },
         name: "blog",
         label: "Blog posts",
