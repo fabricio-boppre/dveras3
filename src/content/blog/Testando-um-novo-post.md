@@ -3,18 +3,19 @@ titulo: Testando um novo post.
 offline: false
 descricao: Lorem ipson.
 data_publicacao: 2025-04-23T03:00:00.000Z
-lastUpdated: 2025-05-07T18:06:50.021Z
+lastUpdated: 2025-05-09T17:22:08.157Z
 modo_exibicao_index: descricao
 relatedCategorias:
   - literatura
+  - vida
 ---
 
 ## Viris reprensa verba
 
-Lorem markdownum _manu_, tanta montesque capienda, opus vires, denique liquitur
-morte quoque. Albet fateri de suspirat _cantat paelex erat_, fecit verba herba.
+Lorem markdownum *manu*, tanta montesque capienda, opus vires, denique liquitur
+morte quoque. Albet fateri de suspirat *cantat paelex erat*, fecit verba herba.
 
-[https://www.youtube.com/watch?v=-6EUmOa_X5E](https://www.youtube.com/watch?v=-6EUmOa_X5E)
+[https://www.youtube.com/watch?v=-6EUmOa\_X5E](https://www.youtube.com/watch?v=-6EUmOa_X5E)
 
 **Gemini qui** genetrix mediis suisque; levitas suam petit caraeque; ora murra
 quod etiam cereris. Enses non, nunc, te fuit, quas vepre paelice viros mittantur
@@ -31,14 +32,14 @@ quarum colloque alieni opus parvoque renovare Corythumque.
 
 ## Mallem quaeque aera
 
-Manibusque opes _virtusque_ rerum, et cognata quoniam speculo iuvenis. Honoris
+Manibusque opes *virtusque* rerum, et cognata quoniam speculo iuvenis. Honoris
 ego neve gravitate annis **exierint**.
 
 > Simul annum in vincemur tantum est accedat oraque ferumque Pallante, bracchia
 > paventes. Via illa. Miserabile ultra. Illa venisse pictis inque venit,
 > nostrique generique vestram resilit; dea vicina sinu Sabini formosa.
 
-Imagine hoc vocem. Suo dare generum _interea_, adfata dabat tamen illo devexo
+Imagine hoc vocem. Suo dare generum *interea*, adfata dabat tamen illo devexo
 tamen fugientibus quia? Herculeos fulvum deque rabies conciderant fuit, est tuis
 est quas, morte stabantque. Puppimque viro, gravitate has ingenti superos Delos,
 omnibus. Fusus ferebat crimen.

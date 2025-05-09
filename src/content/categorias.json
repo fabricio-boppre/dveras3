@@ -1,7 +1,7 @@
 [
   {
-    "id": "cinema",
-    "titulo": "Cinema"
+    "id": "filmes-e-series",
+    "titulo": "Filmes & séries"
   },
   {
     "id": "miguelices-brunitezas",
@@ -14,5 +14,37 @@
   {
     "id": "literatura",
     "titulo": "Literatura"
+  },
+  {
+    "id": "artes-e-ciencias",
+    "titulo": "Artes & ciências"
+  },
+  {
+    "id": "ciclismo",
+    "titulo": "Ciclismo"
+  },
+  {
+    "id": "fotografia",
+    "titulo": "Fotografia"
+  },
+  {
+    "id": "gente",
+    "titulo": "Gente"
+  },
+  {
+    "id": "jornalismo",
+    "titulo": "Jornalismo"
+  },
+  {
+    "id": "viagem",
+    "titulo": "Viagem"
+  },
+  {
+    "id": "vida",
+    "titulo": "Vida"
+  },
+  {
+    "id": "etc",
+    "titulo": "Etc."
   }
 ]
