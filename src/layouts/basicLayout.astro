@@ -136,6 +136,9 @@ const { title, description, url } = Astro.props
         "& a": {
           textDecoration: "underline",
         },
+        "& > div": {
+          maxW: { base: "100%", md: "50%" },
+        },
       })}
     >
       <div
@@ -148,13 +151,13 @@ const { title, description, url } = Astro.props
         <h2 class={css({ fontWeight: "bold" })}>categorias</h2>
         <ul class={css({ listStyleType: "none" })}>
           {
-            categorias.map((categoria) => (
-              <li>
-                <a href={`/categoria/${categoria.id}`}>
-                  {categoria.data.titulo}
-                </a>
-              </li>
-            ))
+            categorias.map(function (categoria, index) {
+              // prettier-ignore
+              //  (to avoid white-spaces in the inline element below)
+              return (
+                <span>{index ? ", " : ""}<a class={css({ textDecoration: "underline" })} href={`/categoria/${categoria.id}`}>{categoria.data.titulo}</a></span>
+              )
+            })
           }
         </ul>
       </div>
