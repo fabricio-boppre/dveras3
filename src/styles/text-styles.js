@@ -4,7 +4,7 @@ export const textStyles = defineTextStyles({
   headerAndFooter: {
     description: "Header & footer text style.",
     value: {
-      fontFamily: "Noto Sans Variable, sans-serif",
+      fontFamily: "var(--font-noto-sans)",
       fontWeight: "400",
       fontSize: ["16px", "17px"],
     },
@@ -12,7 +12,7 @@ export const textStyles = defineTextStyles({
   graySmallLabel: {
     description: "Labels text style.",
     value: {
-      fontFamily: "Noto Sans Variable, sans-serif",
+      fontFamily: "var(--font-noto-sans)",
       fontWeight: "400",
       fontSize: ["16px"],
       color: "gray.400",
@@ -21,7 +21,7 @@ export const textStyles = defineTextStyles({
   h1Title: {
     description: "h1 title style.",
     value: {
-      fontFamily: "Roboto Serif Variable, serif",
+      fontFamily: "var(--font-roboto-serif)",
       fontWeight: "700",
       fontSize: ["24px", "30px"],
     },
@@ -29,7 +29,7 @@ export const textStyles = defineTextStyles({
   h2Title: {
     description: "h2 title style.",
     value: {
-      fontFamily: "Roboto Serif Variable, serif",
+      fontFamily: "var(--font-roboto-serif)",
       fontWeight: "600",
       fontSize: ["20px", "24px"],
     },
@@ -37,7 +37,7 @@ export const textStyles = defineTextStyles({
   article: {
     description: "Body text style.",
     value: {
-      fontFamily: "Noto Sans Variable, sans-serif",
+      fontFamily: "var(--font-noto-sans)",
       fontWeight: "400",
       fontSize: ["17px", "20px"],
       "& h2": {

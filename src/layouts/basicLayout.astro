@@ -3,11 +3,11 @@ import "@styles/index.css"
 import { SEO } from "astro-seo"
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
-import "@fontsource-variable/noto-sans"
 import ThemeManager from "@components/ThemeManager.astro"
 import ThemeSelect from "@components/ThemeSelect.astro"
 import { ClientRouter } from "astro:transitions"
 import { getCollection } from "astro:content"
+import { Font } from "astro:assets"
 
 // Get all entries from categorias collection and sort them:
 const categorias = await getCollection("categoriasCollection")
@@ -25,6 +25,8 @@ const { title, description, url } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <Font cssVariable="--font-roboto-serif" preload />
+    <Font cssVariable="--font-noto-sans" preload />
     <ThemeManager defaultTheme="auto" />
     <ClientRouter />
     <SEO

@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config"
+import { defineConfig, fontProviders } from "astro/config"
 import metaTags from "astro-meta-tags"
 import pageInsight from "astro-page-insight"
 import sitemap from "@astrojs/sitemap"
@@ -13,4 +13,21 @@ export default defineConfig({
     remarkPlugins: [remarkYoutube],
   },
   vite: { server: { allowedHosts: ["macleod.local"] } },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: "Roboto Serif",
+        cssVariable: "--font-roboto-serif",
+        weights: ["600", "700"],
+        fallbacks: ["serif"],
+      },
+      {
+        provider: fontProviders.fontsource(),
+        name: "Noto Sans",
+        cssVariable: "--font-noto-sans",
+        fallbacks: ["sans-serif"],
+      },
+    ],
+  },
 })
