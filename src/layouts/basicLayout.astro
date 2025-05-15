@@ -16,7 +16,7 @@ categorias.sort((a, b) => a.id.localeCompare(b.id))
 // Checking if nofollow and nofollow are defined and send the meta info to layout template:
 const noFollow = Astro.props.nofollow ? Astro.props.nofollow : Boolean(false)
 const noIndex = Astro.props.noindex ? Astro.props.noindex : Boolean(false)
-const { title, description, url } = Astro.props
+const { title, description, url, ogImage } = Astro.props
 ---
 
 <html lang="pt-BR">
@@ -39,7 +39,11 @@ const { title, description, url } = Astro.props
           title: title,
           type: "website",
           url: url,
-          image: Astro.site + "images/layout/logo-open-graph.png",
+          image:
+            Astro.site +
+            (ogImage
+              ? ogImage.substring(1)
+              : "images/layout/logo-open-graph.png"),
         },
         optional: {
           description: description,

@@ -36,6 +36,9 @@ const shareButtons = [BlueskyShareButton]
   title={siteTitle + " | " + post.data.titulo}
   description={post.data.descricao}
   url={canonicalURL.href}
+  ogImage={post.data.imagem_ilustrativa
+    ? post.data.imagem_ilustrativa
+    : undefined}
 >
   <article
     class={css({
