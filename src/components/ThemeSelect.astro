@@ -1,6 +1,9 @@
 ---
 import { css } from "@styled-system/css"
 import { flex } from "@styled-system/patterns"
+import IconAutoTheme from "@components/iconAutoTheme.svg"
+import IconDarkTheme from "@components/iconDarkTheme.svg"
+import IconLightTheme from "@components/iconLightTheme.svg"
 
 const themeIconsStyles =
   "themeIcon " +
@@ -24,42 +27,9 @@ const themeIconsStyles =
   for="themeSelector"
 >
   <span hidden>selector de tema</span>
-  <svg
-    class={themeIconsStyles}
-    data-theme-code="auto"
-    aria-hidden="true"
-    height="11"
-    viewBox="0 0 13.75 11"
-    width="13.75"
-    xmlns="http://www.w3.org/2000/svg"
-    ><path
-      d="m13.0625 6.875h-.6875v-4.8125003a2.0625 2.0625 0 0 0 -2.0625-2.0624997h-6.875a2.0625 2.0625 0 0 0 -2.0625 2.0624997v4.8125003h-.6875a.6875.6875 0 0 0 -.6875.6875v1.375a2.0625 2.0625 0 0 0 2.0625 2.0625h9.625a2.0625 2.0625 0 0 0 2.0625-2.0625v-1.375a.6875.6875 0 0 0 -.6875-.6875zm-10.3125-4.8125003a.6875.6875 0 0 1 .6875-.6874997h6.875a.6875.6875 0 0 1 .6875.6874997v4.8125003h-8.25zm9.625 6.8750003a.6875.6875 0 0 1 -.6875.6875h-9.625a.6875.6875 0 0 1 -.6875-.6875v-.6875h11z"
-      stroke-width=".6875"></path></svg
-  >
-  <svg
-    class={themeIconsStyles}
-    data-theme-code="light"
-    aria-hidden="true"
-    viewBox="0 0 22 22"
-    width="15"
-    height="15"
-  >
-    <path
-      d="M 4,11 A 1,1 0 0 0 3,10 H 2 a 1,1 0 0 0 0,2 h 1 a 1,1 0 0 0 1,-1 z m 0.64,5 -0.71,0.71 a 1,1 0 0 0 0,1.41 1,1 0 0 0 1.41,0 L 6.05,17.41 A 1,1 0 0 0 4.64,16 Z M 11,4 A 1,1 0 0 0 12,3 V 2 a 1,1 0 0 0 -2,0 v 1 a 1,1 0 0 0 1,1 z m 5.66,2.34 a 1,1 0 0 0 0.7,-0.29 L 18.07,5.34 A 1,1 0 1 0 16.66,3.93 L 16,4.64 a 1,1 0 0 0 0,1.41 1,1 0 0 0 0.66,0.29 z m -12,-0.29 a 1,1 0 0 0 1.41,0 1,1 0 0 0 0,-1.41 L 5.36,3.93 A 1.0041165,1.0041165 0 1 0 3.93,5.34 Z M 20,10 h -1 a 1,1 0 0 0 0,2 h 1 a 1,1 0 0 0 0,-2 z m -2.64,6 A 1,1 0 0 0 16,17.36 l 0.71,0.71 a 1,1 0 0 0 1.41,0 1,1 0 0 0 0,-1.41 z M 11,5.5 A 5.5,5.5 0 1 0 16.5,11 5.51,5.51 0 0 0 11,5.5 Z m 0,9 a 3.5,3.5 0 1 1 0,-7 3.5,3.5 0 0 1 0,7 z m 0,3.5 a 1,1 0 0 0 -1,1 v 1 a 1,1 0 0 0 2,0 v -1 a 1,1 0 0 0 -1,-1 z"
-    ></path>
-  </svg>
-  <svg
-    class={themeIconsStyles}
-    data-theme-code="dark"
-    aria-hidden="true"
-    viewBox="0 0 22 22"
-    width="15"
-    height="15"
-  >
-    <path
-      d="M 19.646457,11.878969 A 0.8993393,0.8993393 0 0 0 18.702151,11.753061 7.2387821,7.2387821 0 0 1 15.671378,12.409579 7.3296153,7.3296153 0 0 1 8.3507553,5.1249311 7.7253246,7.7253246 0 0 1 8.5755901,3.3262525 0.8993393,0.8993393 0 0 0 7.3794689,2.309999 9.1193005,9.1193005 0 1 0 19.970219,12.823275 0.8993393,0.8993393 0 0 0 19.646457,11.878969 Z m -8.543723,6.01658 A 7.3206219,7.3206219 0 0 1 6.5520767,4.8821095 v 0.2428216 a 9.1282939,9.1282939 0 0 0 9.1193013,9.1192999 8.7991358,8.7991358 0 0 0 1.888612,-0.197854 7.2936418,7.2936418 0 0 1 -6.457256,3.885145 z"
-    ></path>
-  </svg>
+  <IconAutoTheme class={themeIconsStyles} />
+  <IconLightTheme class={themeIconsStyles} />
+  <IconDarkTheme class={themeIconsStyles} />
   <div
     class={css({
       position: "relative",
