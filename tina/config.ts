@@ -1,6 +1,5 @@
 import { defineConfig, ImageField } from "tinacms"
 import categoriasJson from "../src/content/categorias.json"
-import { offlinePostsURL } from "../src/config/config.json"
 
 // Let's get the categories from the Astro content colllection:
 const categorias = categoriasJson.map((categoria) => ({
