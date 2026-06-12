@@ -52,6 +52,8 @@ export default defineConfig({
             return {
               ...values,
               lastUpdated: new Date().toISOString(),
+              data_publicacao:
+                values.data_publicacao ?? new Date().toISOString(), // 👈 fallback if untouched
             }
           },
           // ..
@@ -115,13 +117,14 @@ export default defineConfig({
           },
           {
             // Data de publicação
+            // - Don't need to be required because it has a default value of the current date and time, set in the UI and in the beforeSubmit function.
             type: "datetime",
             name: "data_publicacao",
             label: "Data de publicação",
-            required: true,
             ui: {
               dateFormat: "DD/MM/YYYY",
               timeFormat: "HH:mm",
+              defaultValue: new Date().toISOString(),
             },
           },
           {
