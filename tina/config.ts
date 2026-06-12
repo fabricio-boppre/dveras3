@@ -39,7 +39,7 @@ export default defineConfig({
       // Blog:
       {
         ui: {
-          // Adding a lastUpdated on beforeSubmit:
+          // Adding a lastUpdated and data_publicacao (if not modified) on beforeSubmit:
           beforeSubmit: async ({
             form,
             cms,
@@ -117,14 +117,13 @@ export default defineConfig({
           },
           {
             // Data de publicação
-            // - Don't need to be required because it has a default value of the current date and time, set in the UI and in the beforeSubmit function.
+            // - Don't need to be required because it has a default value of the current date and time set in the beforeSubmit function.
             type: "datetime",
             name: "data_publicacao",
             label: "Data de publicação",
             ui: {
               dateFormat: "DD/MM/YYYY",
               timeFormat: "HH:mm",
-              defaultValue: new Date().toISOString(),
             },
           },
           {
