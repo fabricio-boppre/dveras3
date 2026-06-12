@@ -100,11 +100,7 @@ export default defineConfig({
             name: "offline",
             label: "Offline",
             description:
-              'Posts marcados como offline não irão aparecer nos índices públicos. Utilize esta opção para revisar um post antes de torná-lo público. Acesse os posts offline através da URL <a href="' +
-              offlinePostsURL +
-              '">' +
-              offlinePostsURL +
-              "</a>. Feita a revisão de um post, basta desmarcar esta opção para que ele se torne público.",
+              "Posts marcados como offline não irão aparecer nos índices públicos. Utilize esta opção para revisar um post antes de torná-lo público. Feita a revisão de um post, basta desmarcar esta opção para que ele se torne público.",
           },
           {
             // Descrição
