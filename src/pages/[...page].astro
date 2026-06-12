@@ -18,7 +18,6 @@ export const getStaticPaths = (async ({ paginate }) => {
     (a, b) =>
       b.data.data_publicacao.getTime() - a.data.data_publicacao.getTime(),
   )
-
   // Return a paginated collection of paths for all items
   return paginate(posts, { pageSize: config.pagination })
 }) satisfies GetStaticPaths

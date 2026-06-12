@@ -119,6 +119,10 @@ export default defineConfig({
             name: "data_publicacao",
             label: "Data de publicação",
             required: true,
+            ui: {
+              dateFormat: "DD/MM/YYYY",
+              timeFormat: "HH:mm",
+            },
           },
           {
             // Data da última alteração (campo escondido pois o Tina preenche automaticamente)
