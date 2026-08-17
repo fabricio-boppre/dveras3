@@ -4,7 +4,7 @@ export const textStyles = defineTextStyles({
   headerAndFooter: {
     description: "Header & footer text style.",
     value: {
-      fontFamily: "var(--font-noto-sans)",
+      fontFamily: "var(--font-nunito-sans)",
       fontWeight: "400",
       fontSize: ["16px", "17px"],
     },
@@ -12,7 +12,7 @@ export const textStyles = defineTextStyles({
   graySmallLabel: {
     description: "Labels text style.",
     value: {
-      fontFamily: "var(--font-noto-sans)",
+      fontFamily: "var(--font-nunito-sans)",
       fontWeight: "400",
       fontSize: ["16px"],
       color: "gray.400",
@@ -37,7 +37,7 @@ export const textStyles = defineTextStyles({
   article: {
     description: "Body text style.",
     value: {
-      fontFamily: "var(--font-noto-sans)",
+      fontFamily: "var(--font-nunito-sans)",
       fontWeight: "400",
       fontSize: ["17px", "20px"],
       "& h2": {

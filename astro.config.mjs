@@ -25,8 +25,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Noto Sans",
-      cssVariable: "--font-noto-sans",
+      name: "Nunito Sans",
+      cssVariable: "--font-nunito-sans",
       fallbacks: ["sans-serif"],
     },
   ],
