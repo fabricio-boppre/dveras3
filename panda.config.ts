@@ -47,7 +47,7 @@ export default defineConfig({
         colors: {
           mainBg: {
             value: {
-              _light: "{colors.white}",
+              _light: "{colors.zinc.50}",
               _dark: "{colors.black}",
             },
           },
