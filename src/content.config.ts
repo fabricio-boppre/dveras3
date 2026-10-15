@@ -12,7 +12,6 @@ const blogCollection = defineCollection({
       offline: z.boolean().optional(),
       descricao: z.string(),
       data_publicacao: z.date(),
-      lastUpdated: z.date(),
       modo_exibicao_index: z.string(),
       imagem_ilustrativa: z.string().optional(),
       relatedCategorias: z.array(reference("categoriasCollection")),

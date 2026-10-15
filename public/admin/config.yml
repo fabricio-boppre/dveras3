@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: fabricio-boppre/dveras3
+  # This line below must be commented when working in development mode, so the CMS doesn't try to authenticate with GitHub. Uncomment it when deploying the CMS to production.
+  # base_url: https://sveltia-cms-auth.parentesis-39e.workers.dev/
+
+media_folder: /public/images/content
+public_folder: /images/content
+
+slug:
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/content/blog
+    fields:
+      - { label: Título, name: titulo, widget: string }
+      - { label: Offline, name: offline, widget: boolean, default: false }
+      - { label: Descrição, name: descricao, widget: string }
+      - {
+          label: Data de publicação,
+          name: data_publicacao,
+          widget: datetime,
+          type: date,
+        }
+      - {
+          label: "Modo de exibição nos índices",
+          name: "modo_exibicao_index",
+          hint: "Escolha como você pretende que este post seja exibido no índice da tela inicial do blog e em outros índices.",
+          widget: "select",
+          required: true,
+          options:
+            [
+              { label: "Exibir apenas a descrição", value: "descricao" },
+              { label: "Exibir o post completo", value: "post_completo" },
+              {
+                label: "Exibir imagem ilustrativa",
+                value: "imagem_ilustrativa",
+              },
+            ],
+        }
+      - {
+          label: Imagem ilustrativa,
+          name: imagem_ilustrativa,
+          widget: image,
+          required: false,
+        }
+      # - { label: Categorias relacionadas, name: relatedCategorias, widget: list }
+      - { label: Post, name: body, widget: richtext }

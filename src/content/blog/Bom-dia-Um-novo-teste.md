@@ -3,7 +3,6 @@ titulo: Texto longo para avaliarmos tipografia
 offline: false
 descricao: Testando tipografia.
 data_publicacao: 2026-08-17T03:00:00.000Z
-lastUpdated: 2026-08-17T13:47:17.590Z
 modo_exibicao_index: descricao
 relatedCategorias:
   - literatura
