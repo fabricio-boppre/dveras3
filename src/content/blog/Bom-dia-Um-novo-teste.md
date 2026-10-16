@@ -4,8 +4,9 @@ offline: false
 descricao: Testando tipografia.
 data_publicacao: 2026-08-17T03:00:00.000Z
 modo_exibicao_index: descricao
+imagem_ilustrativa: ''
 relatedCategorias:
-  - literatura
+  - ciclismo
 ---
 
 Estamos testando a Nunito Sans: [https://fontsource.org/fonts/nunito-sans/install](https://fontsource.org/fonts/nunito-sans/install)

@@ -13,9 +13,28 @@ slug:
   clean_accents: true
 
 collections:
+  # This collection is used to manage the categories of posts in the blog. It uses a JSON file to store the data.
+  # https://sveltiacms.app/en/docs/collections/entries/single-file
+  - name: categorias
+    label: Categorias de posts
+    label_singular: Categoria de post
+    file: src/content/categorias.json
+    create: true
+    identifier_field: id
+    fields:
+      - { name: id, label: ID, widget: string }
+      - { name: titulo, label: Título, widget: string }
+  # This collection is used to manage the posts in the blog. It uses a folder structure to store each post as a separate file.
+  # https://sveltiacms.app/en/docs/collections/entries
   - name: posts
     label: Posts
     label_singular: Post
+    identifier_field: titulo
+    sortable_fields:
+      fields: [titulo, data_publicacao]
+      default:
+        field: data_publicacao
+        direction: Descending
     folder: src/content/blog
     fields:
       - { label: Título, name: titulo, widget: string }
@@ -49,5 +68,18 @@ collections:
           widget: image,
           required: false,
         }
-      # - { label: Categorias relacionadas, name: relatedCategorias, widget: list }
+      - {
+          label: Categorias relacionadas,
+          name: relatedCategorias,
+          widget: relation,
+          collection: categorias,
+          dropdown_threshold: 15,
+          search_fields: [titulo],
+          value_field: id,
+          display_fields: [titulo],
+          multiple: true,
+          min: 1,
+          required: true,
+          hint: "Ao menos uma categoria deve ser escolhida.",
+        }
       - { label: Post, name: body, widget: richtext }
