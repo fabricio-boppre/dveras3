@@ -3,7 +3,6 @@ import BasicLayout from "@layouts/basicLayout.astro"
 import config from "@config/config.json"
 import { getCollection, getEntries, render } from "astro:content"
 import { css } from "@styled-system/css"
-import { flex } from "@styled-system/patterns"
 
 // Let's call getCollection() inside of getStaticPaths() to have our collection data available for building static routes. Then, we create the individual URL paths using the id property of each content entry. Each page is passed the entire collection entry as a prop for use in your page template.
 // - https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
@@ -34,8 +33,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   title={siteTitle + " | " + post.data.titulo}
   description={post.data.descricao}
   url={canonicalURL.href}
-  ogImage={post.data.imagem_ilustrativa
-    ? post.data.imagem_ilustrativa
+  ogImage={post.data.exibicao_index.modo === "imagem_ilustrativa"
+    ? post.data.exibicao_index.imagem
     : undefined}
 >
   <article

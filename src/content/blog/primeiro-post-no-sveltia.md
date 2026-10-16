@@ -1,10 +1,11 @@
 ---
-titulo: Primeiro post no Sveltia
+titulo: Segundo post no Sveltia
 offline: false
 descricao: Primeirão!
 data_publicacao: 2026-10-16
-modo_exibicao_index: imagem_ilustrativa
-imagem_ilustrativa: ''
+exibicao_index:
+  - modo: imagem_ilustrativa
+    imagem: /images/content/20250501_180119.jpg
 relatedCategorias:
   - etc
 ---

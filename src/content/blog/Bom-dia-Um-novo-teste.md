@@ -3,8 +3,8 @@ titulo: Texto longo para avaliarmos tipografia
 offline: false
 descricao: Testando tipografia.
 data_publicacao: 2026-08-17T03:00:00.000Z
-modo_exibicao_index: descricao
-imagem_ilustrativa: ''
+exibicao_index:
+  - modo: post_completo
 relatedCategorias:
   - ciclismo
 ---

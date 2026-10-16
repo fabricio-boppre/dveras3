@@ -57,12 +57,12 @@ const { posts } = Astro.props
             mt: "20px",
           })}
         >
-          {post.data.modo_exibicao_index == "descricao" ? (
+          {post.data.exibicao_index.modo == "descricao" ? (
             <p>{post.data.descricao}</p>
-          ) : post.data.modo_exibicao_index == "post_completo" ? (
+          ) : post.data.exibicao_index.modo == "post_completo" ? (
             <Content />
           ) : (
-            <img src={post.data.imagem_ilustrativa} alt={post.data.titulo} />
+            <img src={post.data.exibicao_index.imagem} alt={post.data.titulo} />
           )}
         </div>
       </article>

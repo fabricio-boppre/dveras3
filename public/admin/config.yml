@@ -20,66 +20,93 @@ collections:
     label_singular: Categoria de post
     file: src/content/categorias.json
     create: true
-    identifier_field: id
+    identifier_field: titulo
     fields:
-      - { name: id, label: ID, widget: string }
-      - { name: titulo, label: Título, widget: string }
+      - name: id
+        label: ID
+        widget: string
+      - name: titulo
+        label: Título
+        widget: string
+
   # This collection is used to manage the posts in the blog. It uses a folder structure to store each post as a separate file.
   # https://sveltiacms.app/en/docs/collections/entries
   - name: posts
     label: Posts
     label_singular: Post
+    folder: src/content/blog
+    create: true
     identifier_field: titulo
     sortable_fields:
-      fields: [titulo, data_publicacao]
+      fields:
+        - titulo
+        - data_publicacao
       default:
         field: data_publicacao
         direction: Descending
-    folder: src/content/blog
     fields:
-      - { label: Título, name: titulo, widget: string }
-      - { label: Offline, name: offline, widget: boolean, default: false }
-      - { label: Descrição, name: descricao, widget: string }
-      - {
-          label: Data de publicação,
-          name: data_publicacao,
-          widget: datetime,
-          type: date,
-        }
-      - {
-          label: "Modo de exibição nos índices",
-          name: "modo_exibicao_index",
-          hint: "Escolha como você pretende que este post seja exibido no índice da tela inicial do blog e em outros índices.",
-          widget: "select",
-          required: true,
-          options:
-            [
-              { label: "Exibir apenas a descrição", value: "descricao" },
-              { label: "Exibir o post completo", value: "post_completo" },
-              {
-                label: "Exibir imagem ilustrativa",
-                value: "imagem_ilustrativa",
-              },
-            ],
-        }
-      - {
-          label: Imagem ilustrativa,
-          name: imagem_ilustrativa,
-          widget: image,
-          required: false,
-        }
-      - {
-          label: Categorias relacionadas,
-          name: relatedCategorias,
-          widget: relation,
-          collection: categorias,
-          dropdown_threshold: 15,
-          search_fields: [titulo],
-          value_field: id,
-          display_fields: [titulo],
-          multiple: true,
-          min: 1,
-          required: true,
-          hint: "Ao menos uma categoria deve ser escolhida.",
-        }
-      - { label: Post, name: body, widget: richtext }
+      - name: titulo
+        label: Título
+        widget: string
+
+      - name: offline
+        label: Offline
+        widget: boolean
+        default: false
+
+      - name: descricao
+        label: Descrição
+        widget: string
+
+      - name: data_publicacao
+        label: Data de publicação
+        widget: datetime
+        type: date
+
+      - name: exibicao_index
+        label: Modo de exibição nos índices
+        widget: list
+        required: true
+        min: 1
+        max: 1
+        add_to_top: false
+        typeKey: modo
+        hint: >-
+          Escolha como você pretende que este post seja exibido no índice da
+          tela inicial do blog e em outros índices.
+        types:
+          - name: descricao
+            label: Exibir apenas a descrição
+            widget: object
+            fields: []
+          - name: post_completo
+            label: Exibir o post completo
+            widget: object
+            fields: []
+          - name: imagem_ilustrativa
+            label: Exibir imagem ilustrativa
+            widget: object
+            fields:
+              - name: imagem
+                label: Imagem ilustrativa
+                widget: image
+                required: true
+
+      - name: relatedCategorias
+        label: Categorias relacionadas
+        widget: relation
+        collection: categorias
+        dropdown_threshold: 15
+        search_fields:
+          - titulo
+        value_field: id
+        display_fields:
+          - titulo
+        multiple: true
+        min: 1
+        required: true
+        hint: Ao menos uma categoria deve ser escolhida.
+
+      - name: body
+        label: Post
+        widget: richtext
