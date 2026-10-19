@@ -14,7 +14,7 @@
     "@astrojs/markdown-remark": "^7.3.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.0",
+    "astro": "^7.4.1",
     "astro-ai-robots-txt": "^0.1.5",
     "astro-meta-tags": "^0.4.1",
     "astro-seo": "^1.2.0",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@pandacss/dev": "^1.12.0",
     "@types/node": "^26.6.5",
-    "eslint": "^10.12.0",
+    "eslint": "^10.13.0",
     "eslint-plugin-astro": "^3.2.1",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^0.14.1"
