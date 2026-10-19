@@ -13,6 +13,16 @@ slug:
   clean_accents: true
 
 collections:
+  # File Collection for "Sobre":
+  - name: paginas
+    label: Páginas
+    files:
+      - name: sobre
+        label: Sobre
+        file: src/content/paginas/sobre.md
+        fields:
+          - { name: body, label: Body, widget: richtext }
+
   # This collection is used to manage the categories of posts in the blog. It uses a JSON file to store the data.
   # https://sveltiacms.app/en/docs/collections/entries/single-file
   - name: categorias
