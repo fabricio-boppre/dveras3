@@ -4,7 +4,7 @@ backend:
   name: github
   repo: fabricio-boppre/dveras3
   # This line below must be commented when working in development mode, so the CMS doesn't try to authenticate with GitHub. Uncomment it when deploying the CMS to production.
-  base_url: https://dverasv3-sveltia-cms-auth.dauro-veras.workers.dev/
+  base_url: https://dveras3-sveltia-cms-auth.dauro-veras.workers.dev/
 
 media_folder: /public/images/content
 public_folder: /images/content
