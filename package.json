@@ -2,6 +2,7 @@
   "name": "dveras3",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "prepare": "panda codegen",
     "dev": "astro dev --host",
