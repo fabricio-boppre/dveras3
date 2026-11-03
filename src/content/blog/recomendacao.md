@@ -1,7 +1,7 @@
 ---
 titulo: Recomendação
 offline: false
-descricao: Recomendação para o futuro.
+descricao: Recomendação para o nosso futuro.
 data_publicacao: 2026-10-29
 exibicao_index:
   - modo: post_completo
