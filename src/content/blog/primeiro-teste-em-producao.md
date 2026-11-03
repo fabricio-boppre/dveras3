@@ -1,5 +1,5 @@
 ---
-titulo: Primeiro teste em produção.
+titulo: Primeiro teste em produção
 offline: false
 descricao: Testando em produção.
 data_publicacao: 2026-10-28
