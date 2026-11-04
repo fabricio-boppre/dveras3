@@ -9,4 +9,4 @@ relatedCategorias:
   - fotografia
 ---
 
-![](/images/content/salto.jpg)
+![Rapaz sem camisa salta de um trapiche e mergulha no mar. No horizonte, morros azulados.](/images/content/salto.jpg "Salto")
