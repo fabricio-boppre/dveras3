@@ -1,7 +1,7 @@
 ---
 titulo: Sugestão e dúvida
 offline: false
-descricao: Diálogos no desenvolvimento do blog
+descricao: Diálogos no desenvolvimento do blog.
 data_publicacao: 2026-11-04
 exibicao_index:
   - modo: post_completo
