@@ -7,7 +7,7 @@ import remarkYoutube from "remark-youtube"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://v3.dauroveras.com.br",
+  site: "https://dveras3.dauro-veras.workers.dev",
   integrations: [metaTags(), sitemap(), aiRobotsTxt()],
   markdown: {
     processor: unified({
